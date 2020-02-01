@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/background"
+        android:drawable="@drawable/selector_button_horn"
+        android:top="@dimen/hornButtonPadding"
+        android:bottom="@dimen/hornButtonPadding"
+        android:left="@dimen/hornButtonPadding"
+        android:right="@dimen/hornButtonPadding"
+        />
+
+    <item
+        android:id="@+id/imageHorn"
+        android:drawable="@drawable/ic_horn"
+        android:top="@dimen/hornButtonIconPaddingVertical"
+        android:bottom="@dimen/hornButtonIconPaddingVertical"
+        android:left="@dimen/hornButtonIconPaddingHorizontal"
+        android:right="@dimen/hornButtonIconPaddingHorizontal" />
+</layer-list>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <dimen name="classScoreMarginOuter">8dp</dimen>
+    <dimen name="classImageSize">100dp</dimen>
+    <dimen name="classTextSize">16sp</dimen>
+    <dimen name="classImageMarginHorizontal">16dp</dimen>
+    <dimen name="classImageMarginVertical">16dp</dimen>
+    <dimen name="pickerMarginVertical">8dp</dimen>
+    <dimen name="hornSize">48dp</dimen>
+    <dimen name="hornButtonPadding">8dp</dimen>
+    <dimen name="hornButtonIconPaddingHorizontal">48dp</dimen>
+    <dimen name="hornButtonIconPaddingVertical">10dp</dimen>
+
+    <dimen name="middlePanelHeight">96dp</dimen>
+    <dimen name="middlePanelButtonSize">64dp</dimen>
+    <dimen name="gemSize">32dp</dimen>
+    <dimen name="gemMarginHorizontal">12dp</dimen>
+    <dimen name="scoreSize">24sp</dimen>
+</resources>

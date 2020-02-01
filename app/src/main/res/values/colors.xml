@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#261d18</color>
+    <color name="colorPrimaryDark">#17120f</color>
+    <color name="colorAccent">#ffd147</color>
+
+    <color name="backgroundColor">#261d18</color>
+    <color name="classIconColor">#3b3531</color>
+    <color name="buttonColor">#ffd147</color>
+    <color name="scoreTextColor">#bdbdbd</color>
+
+    <color name="firstPlayerColor">#bdbdbd</color>
+    <color name="secondPlayerColor">#bdbdbd</color>
+    <color name="secondPlayerColorFade">#858585</color>
+
+    <color name="hornEnabledColor">#ffd147</color>
+    <color name="hornDisabledColor">#bdbdbd</color>
+</resources>
