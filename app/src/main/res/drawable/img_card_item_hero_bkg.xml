@@ -2,11 +2,11 @@
 <shape android:shape="oval"
     xmlns:android="http://schemas.android.com/apk/res/android" >
     <gradient
-        android:startColor="@color/cardUnitBackgroundColorStart"
-        android:endColor="@color/cardUnitBackgroundColorEnd"
+        android:startColor="@color/cardHeroBackgroundColorStart"
+        android:endColor="@color/cardHeroBackgroundColorEnd"
         android:type="linear"
         android:angle="135"/>
     <stroke
         android:width="@dimen/cardBorderWidth"
-        android:color="@color/cardUnitBorderColor"/>
+        android:color="@color/cardHeroBorderColor"/>
 </shape>

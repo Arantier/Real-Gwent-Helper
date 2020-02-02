@@ -21,4 +21,7 @@
     <dimen name="cardUsualTextSize">42sp</dimen>
     <dimen name="cardBorderWidth">4dp</dimen>
     <dimen name="cardItemSize">64dp</dimen>
+    <dimen name="cardImageMargin">8dp</dimen>
+    <dimen name="cardImageHornMargin">12dp</dimen>
+    <dimen name="cardBuffTextSize">36sp</dimen>
 </resources>

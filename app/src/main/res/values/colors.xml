@@ -12,8 +12,14 @@
     <color name="buttonOnColor">#ffd147</color>
     <color name="buttonOffColor">#bdbdbd</color>
 
-    <color name="cardUsualBorderColor">#844a18</color>
-    <color name="cardUsualBackgroundColorStart">#8b8b8b</color>
-    <color name="cardUsualBackgroundColorEnd">#fefefe</color>
-    <color name="cardUsualTextColor">#000</color>
+    <color name="cardUnitBorderColor">#844a18</color>
+    <color name="cardUnitBackgroundColorStart">#8b8b8b</color>
+    <color name="cardUnitBackgroundColorEnd">#fefefe</color>
+    <color name="cardUnitTextColor">#000</color>
+    <color name="cardUnitIconColor">#666</color>
+    <color name="cardHeroBorderColor">#e17f37</color>
+    <color name="cardHeroBackgroundColorStart">#484540</color>
+    <color name="cardHeroBackgroundColorEnd">#000000</color>
+    <color name="cardHeroTextColor">#FFF</color>
+    <color name="cardHeroIconColor">#a6a6a6</color>
 </resources>
