@@ -9,10 +9,11 @@
     <color name="buttonColor">#ffd147</color>
     <color name="scoreTextColor">#bdbdbd</color>
 
-    <color name="firstPlayerColor">#bdbdbd</color>
-    <color name="secondPlayerColor">#bdbdbd</color>
-    <color name="secondPlayerColorFade">#858585</color>
+    <color name="buttonOnColor">#ffd147</color>
+    <color name="buttonOffColor">#bdbdbd</color>
 
-    <color name="hornEnabledColor">#ffd147</color>
-    <color name="hornDisabledColor">#bdbdbd</color>
+    <color name="cardUsualBorderColor">#844a18</color>
+    <color name="cardUsualBackgroundColorStart">#8b8b8b</color>
+    <color name="cardUsualBackgroundColorEnd">#fefefe</color>
+    <color name="cardUsualTextColor">#000</color>
 </resources>

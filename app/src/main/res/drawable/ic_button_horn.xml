@@ -3,11 +3,7 @@
 
     <item
         android:id="@+id/background"
-        android:drawable="@drawable/selector_button_horn"
-        android:top="@dimen/hornButtonPadding"
-        android:bottom="@dimen/hornButtonPadding"
-        android:left="@dimen/hornButtonPadding"
-        android:right="@dimen/hornButtonPadding"
+        android:drawable="@drawable/bkg_horn_button"
         />
 
     <item
@@ -16,5 +12,5 @@
         android:top="@dimen/hornButtonIconPaddingVertical"
         android:bottom="@dimen/hornButtonIconPaddingVertical"
         android:left="@dimen/hornButtonIconPaddingHorizontal"
-        android:right="@dimen/hornButtonIconPaddingHorizontal" />
+        android:right="@dimen/hornButtonIconPaddingHorizontal"/>
 </layer-list>

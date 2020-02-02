@@ -11,43 +11,25 @@
     </style>
 
     <style name="scoreTextStyle" parent="AppTheme">
-        <item name="android:textSize">@dimen/scoreSize</item>
+        <item name="android:textSize">@dimen/summaryScoreTextSize</item>
         <item name="android:textColor">@color/scoreTextColor</item>
     </style>
 
-    <style name="scorePickerStyle" parent="AppTheme">
-        <item name="android:layout_centerInParent">true</item>
-        <item name="np_dividerColor">@color/secondPlayerColor</item>
-        <item name="np_max">600</item>
-        <item name="np_min">0</item>
-        <item name="np_selectedTextColor">@color/secondPlayerColor</item>
-        <item name="np_textColor">@color/secondPlayerColorFade</item>
-        <item name="np_value">0</item>
-        <item name="android:elevation">1dp</item>
-        <item name="android:layout_marginTop">@dimen/pickerMarginVertical</item>
-        <item name="android:layout_marginBottom">@dimen/pickerMarginVertical</item>
-    </style>
-
-    <style name="firstPlayerScorePickerStyle" parent="scorePickerStyle">
-        <!--TODO: измени цвет текста-->
-    </style>
-
-    <style name="secondPlayerScorePickerStyle" parent="scorePickerStyle">
-        <!--TODO: измени цвет текста-->
-    </style>
-
-    <style name="hornButtonDefaultStyle" parent="AppTheme">
+    <style name="effectButtonDefaultStyle" parent="AppTheme">
         <item name="android:scaleType">fitCenter</item>
-        <item name="android:src">@drawable/ic_horn</item>
-        <item name="android:elevation">1dp</item>
-        <item name="android:background">@drawable/selector_button_horn</item>
-        <item name="android:gravity">center</item>
+        <item name="android:background">@drawable/sel_class_button</item>
+        <item name="android:layout_margin">@dimen/effectButtonMargin</item>
+        <item name="android:layout_height">@dimen/effectButtonEffectHeight</item>
+    </style>
+
+    <style name="hornButtonDefaultStyle" parent="effectButtonDefaultStyle">
+        <item name="android:background">@drawable/bkg_horn_button</item>
         <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
         <item name="android:textOn" />
         <item name="android:textOff" />
     </style>
 
-    <style name="classImageStyle">
+    <style name="rowImageStyle">
         <item name="android:tint">@color/classIconColor</item>
         <item name="android:scaleType">fitCenter</item>
     </style>
