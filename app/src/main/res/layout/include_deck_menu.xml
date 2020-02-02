@@ -2,34 +2,206 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerView"
+        android:id="@+id/recyclerCardsList"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/constraintLayout"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toTopOf="@+id/buttonClose"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal"
         tools:itemCount="12"
-        tools:listitem="@layout/item_card_unit_default" />
+        tools:listitem="@layout/item_card" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/constraintLayout"
+    <Button
+        android:id="@+id/buttonClose"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="@string/title_close"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/buttonRemove"
+        app:layout_constraintRight_toRightOf="parent" />
+
+    <Button
+        android:id="@+id/buttonRemove"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:text="@string/title_remove"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/buttonClose"
+        app:layout_constraintLeft_toRightOf="@id/buttonKeep"
+        app:layout_constraintRight_toLeftOf="@id/buttonClose"
+        app:layout_constraintTop_toTopOf="@id/buttonClose" />
+
+    <Button
+        android:id="@+id/buttonKeep"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:text="@string/title_keep"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@id/buttonClose"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@id/buttonRemove"
+        app:layout_constraintTop_toTopOf="@id/buttonClose" />
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layoutMenuEdit"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:visibility="gone"
+        app:layout_constraintBottom_toTopOf="@+id/buttonClose"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/recyclerView">
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/imageCardTypeIcon"
+            android:layout_width="@dimen/cardItemSize"
+            android:layout_height="@dimen/cardItemSize"
+            android:elevation="-2dp"
+            android:src="@drawable/ic_card_unit_default_active"
+            app:layout_constraintBottom_toBottomOf="@+id/numberPicker"
+            app:layout_constraintEnd_toEndOf="@+id/numberPicker"
+            app:layout_constraintStart_toStartOf="@+id/numberPicker"
+            app:layout_constraintTop_toTopOf="@+id/numberPicker" />
+
+        <com.shawnlin.numberpicker.NumberPicker
+            android:id="@+id/numberPicker"
+            style="@style/scorePickerStyle"
+            android:layout_width="@dimen/deckMenuPickerWidth"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+        <ImageView
+            android:id="@+id/imageRowIcon"
+            style="@style/rowImageStyle"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:elevation="-2dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toEndOf="@+id/numberPicker"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
+
+        <TextView
+            android:id="@+id/textTypeTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_type_select"
+            app:layout_constraintEnd_toEndOf="@+id/imageRowIcon"
+            app:layout_constraintStart_toEndOf="@+id/numberPicker"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/numberPicker"
+            app:layout_constraintTop_toBottomOf="@+id/textTypeTitle">
+
+            <Button
+                android:id="@+id/buttonUnitDefault"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_unit_default"
+                android:checked="true"
+                app:layout_constraintBottom_toTopOf="@+id/buttonHeroDefault"
+                app:layout_constraintEnd_toStartOf="@+id/buttonUnitBuff"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <Button
+                android:id="@+id/buttonUnitBuff"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_unit_buff"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonUnitDefault"
+                app:layout_constraintEnd_toStartOf="@+id/buttonUnitHorn"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonUnitDefault"
+                app:layout_constraintTop_toTopOf="@+id/buttonUnitDefault" />
+
+            <Button
+                android:id="@+id/buttonUnitHorn"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_unit_horn"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonUnitDefault"
+                app:layout_constraintEnd_toStartOf="@+id/buttonUnitBond"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonUnitBuff"
+                app:layout_constraintTop_toTopOf="@+id/buttonUnitDefault"
+                app:layout_constraintVertical_bias="0.0" />
+
+            <Button
+                android:id="@+id/buttonUnitBond"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_unit_bond"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonUnitDefault"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonUnitHorn"
+                app:layout_constraintTop_toTopOf="@+id/buttonUnitDefault" />
+
+            <Button
+                android:id="@+id/buttonHeroDefault"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_hero_default"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/buttonHeroBuff"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/buttonUnitDefault" />
+
+            <Button
+                android:id="@+id/buttonHeroBuff"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_hero_buff"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonHeroDefault"
+                app:layout_constraintEnd_toStartOf="@+id/buttonHeroMushroom"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonHeroDefault"
+                app:layout_constraintTop_toTopOf="@+id/buttonHeroDefault" />
+
+            <Button
+                android:id="@+id/buttonHeroMushroom"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_hero_mushroom"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonHeroDefault"
+                app:layout_constraintEnd_toStartOf="@+id/buttonUnitBerserk"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonHeroBuff"
+                app:layout_constraintTop_toTopOf="@+id/buttonHeroDefault" />
+
+            <Button
+                android:id="@+id/buttonUnitBerserk"
+                android:layout_width="@dimen/cardItemSize"
+                android:layout_height="@dimen/cardItemSize"
+                android:background="@drawable/ic_card_unit_berserk"
+                app:layout_constraintBottom_toBottomOf="@+id/buttonHeroDefault"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/buttonHeroMushroom"
+                app:layout_constraintTop_toTopOf="@+id/buttonHeroDefault" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

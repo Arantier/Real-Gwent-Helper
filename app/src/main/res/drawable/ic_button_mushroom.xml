@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/background"
+        android:drawable="@drawable/bkg_toggle_button"
+        />
+
+    <item
+        android:id="@+id/imageMushroom"
+        android:drawable="@drawable/ic_mushroom"
+        android:top="@dimen/hornButtonIconPaddingVertical"
+        android:bottom="@dimen/hornButtonIconPaddingVertical"
+        android:left="@dimen/hornButtonIconPaddingHorizontal"
+        android:right="@dimen/hornButtonIconPaddingHorizontal"/>
+</layer-list>

@@ -8,6 +8,14 @@
         <item name="colorAccent">@color/colorAccent</item>
         <item name="android:windowBackground">@color/backgroundColor</item>
         <item name="android:colorButtonNormal">@color/buttonColor</item>
+        <item name="android:textColorPrimary">@color/textColorPrimary</item>
+        <item name="android:textColorSecondary">@color/textColorSecondary</item>
+        <item name="android:textColor">@color/textColorPrimary</item>
+        <item name="buttonStyle">@style/buttonStyle</item>
+    </style>
+
+    <style name="buttonStyle" parent="Widget.AppCompat.Button">
+        <item name="android:textColor">@color/textColorSecondary</item>
     </style>
 
     <style name="scoreTextStyle" parent="AppTheme">
@@ -22,8 +30,8 @@
         <item name="android:layout_height">@dimen/effectButtonEffectHeight</item>
     </style>
 
-    <style name="hornButtonDefaultStyle" parent="effectButtonDefaultStyle">
-        <item name="android:background">@drawable/bkg_horn_button</item>
+    <style name="toggleButtonDefaultStyle" parent="effectButtonDefaultStyle">
+        <item name="android:background">@drawable/bkg_toggle_button</item>
         <item name="android:disabledAlpha">?android:attr/disabledAlpha</item>
         <item name="android:textOn" />
         <item name="android:textOff" />
@@ -32,6 +40,19 @@
     <style name="rowImageStyle">
         <item name="android:tint">@color/classIconColor</item>
         <item name="android:scaleType">fitCenter</item>
+    </style>
+
+    <style name="scorePickerStyle" parent="AppTheme">
+        <item name="android:layout_centerInParent">true</item>
+        <item name="np_dividerColor">@color/deckPickerSecondaryColor</item>
+        <item name="np_max">20</item>
+        <item name="np_min">0</item>
+        <item name="np_selectedTextColor">@color/deckPickerPrimaryColor</item>
+        <item name="np_textColor">@color/deckPickerSecondaryColor</item>
+        <item name="np_value">0</item>
+        <item name="android:elevation">1dp</item>
+        <item name="android:layout_marginLeft">@dimen/deckMenuPickerMarginHorizontal</item>
+        <item name="android:layout_marginRight">@dimen/deckMenuPickerMarginHorizontal</item>
     </style>
 
 </resources>

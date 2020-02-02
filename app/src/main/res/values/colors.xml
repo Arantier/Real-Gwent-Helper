@@ -3,6 +3,8 @@
     <color name="colorPrimary">#261d18</color>
     <color name="colorPrimaryDark">#17120f</color>
     <color name="colorAccent">#ffd147</color>
+    <color name="textColorPrimary">#bdbdbd</color>
+    <color name="textColorSecondary">#000</color>
 
     <color name="backgroundColor">#261d18</color>
     <color name="classIconColor">#3b3531</color>
@@ -12,14 +14,27 @@
     <color name="buttonOnColor">#ffd147</color>
     <color name="buttonOffColor">#bdbdbd</color>
 
+    <color name="deckPickerPrimaryColor">#8b8b8b</color>
+    <color name="deckPickerSecondaryColor">#bdbdbd</color>
+    <color name="deckTypeMessageTextColor">#bdbdbd</color>
+    <color name="deckTypeMessageBackgroundColor">#484540</color>
+
     <color name="cardUnitBorderColor">#844a18</color>
+    <color name="cardUnitBorderColorInactive">#AA844a18</color>
     <color name="cardUnitBackgroundColorStart">#8b8b8b</color>
+    <color name="cardUnitBackgroundColorStartInactive">#AA8b8b8b</color>
     <color name="cardUnitBackgroundColorEnd">#fefefe</color>
+    <color name="cardUnitBackgroundColorEndInactive">#AAfefefe</color>
     <color name="cardUnitTextColor">#000</color>
     <color name="cardUnitIconColor">#666</color>
+    <color name="cardUnitIconColorInactive">#AA666666</color>
     <color name="cardHeroBorderColor">#e17f37</color>
+    <color name="cardHeroBorderColorInactive">#AAe17f37</color>
     <color name="cardHeroBackgroundColorStart">#484540</color>
+    <color name="cardHeroBackgroundColorStartInactive">#AA484540</color>
     <color name="cardHeroBackgroundColorEnd">#000000</color>
+    <color name="cardHeroBackgroundColorEndInactive">#AA000000</color>
     <color name="cardHeroTextColor">#FFF</color>
     <color name="cardHeroIconColor">#a6a6a6</color>
+    <color name="cardHeroIconColorInactive">#AAa6a6a6</color>
 </resources>

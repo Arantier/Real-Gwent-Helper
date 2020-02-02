@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/ic_card_unit_default_active"/>
+    <item android:drawable="@drawable/ic_bear_dark"
+        android:left="@dimen/cardImageMargin"
+        android:right="@dimen/cardImageMargin"
+        android:top="@dimen/cardImageMargin"
+        android:bottom="@dimen/cardImageMargin"/>
+</layer-list>
