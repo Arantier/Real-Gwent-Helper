@@ -7,11 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import kotlinx.android.synthetic.main.fragment_deck.*
-import kotlinx.android.synthetic.main.fragment_deck.archery
 import kotlinx.android.synthetic.main.fragment_deck.backgroundImages
-import kotlinx.android.synthetic.main.fragment_deck.infantry
-import kotlinx.android.synthetic.main.fragment_deck.leaderMenu
-import kotlinx.android.synthetic.main.fragment_deck.siege
 import kotlinx.android.synthetic.main.fragment_deck.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.DeckRowInterface
