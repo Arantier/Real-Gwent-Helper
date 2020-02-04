@@ -4,6 +4,8 @@
     <dimen name="effectButtonCornerRadius">3dp</dimen>
     <dimen name="effectButtonMargin">8dp</dimen>
     <dimen name="effectButtonEffectHeight">39dp</dimen>
+    <dimen name="effectButtonBackgroundPaddingVertical">5dp</dimen>
+    <dimen name="effectButtonBackgroundPaddingHorizontal">3dp</dimen>
     <dimen name="hornButtonIconPaddingHorizontal">8dp</dimen>
     <dimen name="hornButtonIconPaddingVertical">9dp</dimen>
 
@@ -11,6 +13,7 @@
     <dimen name="deckButtonMarginBottom">16dp</dimen>
     <dimen name="deckMenuPickerWidth">64dp</dimen>
     <dimen name="deckMenuPickerMarginHorizontal">16dp</dimen>
+    <dimen name="deckLeaderMenuButtonWidth">48dp</dimen>
 
     <dimen name="classScoreTextSize">32sp</dimen>
 
@@ -19,6 +22,7 @@
     <dimen name="gemSize">32dp</dimen>
     <dimen name="gemMarginHorizontal">12dp</dimen>
     <dimen name="summaryScoreTextSize">24sp</dimen>
+    <dimen name="summaryScoreTextWidth">48dp</dimen>
 
     <dimen name="cardUsualTextSize">42sp</dimen>
     <dimen name="cardBorderWidth">4dp</dimen>
@@ -27,8 +31,7 @@
     <dimen name="cardImageHornMargin">12dp</dimen>
     <dimen name="cardBuffTextSize">36sp</dimen>
 
-    <dimen name="weatherButtonWidth">64dp</dimen>
-    <dimen name="weatherButtonHeight">128dp</dimen>
+    <dimen name="weatherButtonSize">50dp</dimen>
     <dimen name="weatherButtonMarginHorizontal">10dp</dimen>
 
     <dimen name="bondDialogTitleSize">18sp</dimen>

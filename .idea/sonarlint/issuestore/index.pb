@@ -18,8 +18,6 @@ A
 gradlew.bat,2/a/2a45a911a8f1836b0b6c5b758962572012d8f8c3
 ?
 settings.gradle,0/5/05efc8b1657769a27696d478ded1e95f38737233
-p
-@app/src/main/java/ru/shcherbakov/realgwenthelper/MainActivity.kt,f/d/fdec01c4b9ca102aba190645a57df43ec811e510
 X
 (app/src/main/res/drawable/ic_archery.xml,5/c/5c68df500048c534aed1270c4d47889d47e673b3
 e
@@ -40,14 +38,6 @@ X
 (app/src/main/res/drawable/ic_weather.xml,9/3/93dbdd67bb4de1df9ea915d0fd9c51c38fce6ef5
 h
 8app/src/main/res/drawable-v24/ic_launcher_foreground.xml,0/7/078508c831007ccb3938b355f0d30a8368f99a8d
-c
-3app/src/main/res/mipmap-anydpi-v26/ic_gem_empty.xml,0/e/0ee29d1fde6bfbd460f1179223265777db0ef337
-i
-9app/src/main/res/mipmap-anydpi-v26/ic_gem_empty_round.xml,1/6/16617004986e5468fbc4016717965efa09e57834
-d
-4app/src/main/res/mipmap-anydpi-v26/ic_gem_filled.xml,2/3/23736f368245301f0b96c4760a85c8f0cdd43a4e
-j
-:app/src/main/res/mipmap-anydpi-v26/ic_gem_filled_round.xml,f/4/f4f86006ffadd88fab3c7326e0965a239898e83c
 b
 2app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml,8/e/8e27ba16c655f421171956147d0fde89b7d25d17
 h
@@ -92,3 +82,17 @@ W
 'app/src/main/res/drawable/ic_finish.xml,5/d/5d7060a5e6f9d7acd7baf90cb9561dc022637be5
 \
 ,app/src/main/res/drawable/ic_button_horn.xml,f/5/f571fdf34648eeec7a0044307c93d63d4cbaf27b
+w
+Gapp/src/main/java/ru/shcherbakov/realgwenthelper/ui/DeckMenuFragment.kt,f/e/fe33ed2755a9fc8b8898dcc62a291fa26f8df0c6
+s
+Capp/src/main/java/ru/shcherbakov/realgwenthelper/ui/MainActivity.kt,2/b/2b2136a530153797e49679c1d5710685e7a08765
+o
+?app/src/main/java/ru/shcherbakov/realgwenthelper/data/Player.kt,c/b/cb30c5cb14ff4a0bf374f10c5dbe3ff9ff0f9f6b
+s
+Capp/src/main/java/ru/shcherbakov/realgwenthelper/ui/DeckFragment.kt,b/a/badf5fb7b238d16b31bc0d9b831021d44edbd73b
+m
+=app/src/main/java/ru/shcherbakov/realgwenthelper/data/Card.kt,2/c/2ccf0334cfb4a5a329bf317ef672f26282cfa2ec
+l
+<app/src/main/java/ru/shcherbakov/realgwenthelper/data/Row.kt,9/c/9c350aa6d24d80f9510564b9e36cf58fa65825ee
+r
+Bapp/src/main/java/ru/shcherbakov/realgwenthelper/ui/RowFragment.kt,9/8/98142a5a065193aa5207ff105fb1c8dc1aff2456

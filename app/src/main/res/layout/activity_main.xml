@@ -5,29 +5,29 @@
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".ui.MainActivity">
 
 
-    <include
+    <FrameLayout
         android:id="@+id/secondPlayerDeck"
-        layout="@layout/include_deck"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/middlePanel"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        android:rotation="180"
         tools:rotation="0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/middlePanel"
         android:layout_width="0dp"
         android:layout_height="@dimen/middlePanelHeight"
-        app:layout_constraintBottom_toTopOf="@+id/firstPlayerDeck"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/secondPlayerDeck">
+        app:layout_constraintTop_toTopOf="parent">
 
         <ImageButton
             android:id="@+id/buttonReset"
@@ -49,7 +49,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toEndOf="@+id/buttonReset"
             app:layout_constraintTop_toBottomOf="@+id/imageSecondPlayerGem1"
-            app:srcCompat="@mipmap/ic_gem_empty" />
+            app:srcCompat="@drawable/ic_gem_empty" />
 
         <ImageView
             android:id="@+id/imageSecondPlayerGem1"
@@ -60,7 +60,7 @@
             app:layout_constraintBottom_toTopOf="@+id/imageSecondPlayerGem2"
             app:layout_constraintStart_toEndOf="@+id/buttonReset"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ic_gem_empty" />
+            app:srcCompat="@drawable/ic_gem_empty" />
 
         <ImageView
             android:id="@+id/imageFirstPlayerGem1"
@@ -71,7 +71,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@id/buttonWeather"
             app:layout_constraintTop_toBottomOf="@+id/imageFirstPlayerGem2"
-            app:srcCompat="@mipmap/ic_gem_empty" />
+            app:srcCompat="@drawable/ic_gem_empty" />
 
         <ImageView
             android:id="@+id/imageFirstPlayerGem2"
@@ -83,7 +83,7 @@
             app:layout_constraintEnd_toStartOf="@+id/buttonWeather"
             app:layout_constraintRight_toLeftOf="@id/imageFirstPlayerGem1"
             app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@mipmap/ic_gem_empty" />
+            app:srcCompat="@drawable/ic_gem_empty" />
 
         <ImageButton
             android:id="@+id/buttonWeather"
@@ -99,52 +99,51 @@
         <TextView
             android:id="@+id/textFirstPlayerScore"
             style="@style/scoreTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/summaryScoreTextWidth"
             android:layout_height="wrap_content"
             android:layout_marginRight="@dimen/gemMarginHorizontal"
             app:layout_constraintBottom_toTopOf="@+id/textFirstPlayerScoreInversed"
             app:layout_constraintRight_toLeftOf="@+id/imageFirstPlayerGem1"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="0" />
+            tools:text="123" />
 
         <TextView
             android:id="@+id/textFirstPlayerScoreInversed"
             style="@style/scoreTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/summaryScoreTextWidth"
             android:layout_height="wrap_content"
             android:rotation="180"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textFirstPlayerScore"
             app:layout_constraintTop_toBottomOf="@+id/textFirstPlayerScore"
-            tools:text="0" />
+            tools:text="123" />
 
         <TextView
             android:id="@+id/textSecondPlayerScore"
             style="@style/scoreTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/summaryScoreTextWidth"
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/gemMarginHorizontal"
             app:layout_constraintBottom_toTopOf="@+id/textSecondPlayerScoreInversed"
             app:layout_constraintStart_toEndOf="@+id/imageSecondPlayerGem1"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="0" />
+            tools:text="123" />
 
         <TextView
             android:id="@+id/textSecondPlayerScoreInversed"
             style="@style/scoreTextStyle"
-            android:layout_width="wrap_content"
+            android:layout_width="@dimen/summaryScoreTextWidth"
             android:layout_height="wrap_content"
             android:rotation="180"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textSecondPlayerScore"
             app:layout_constraintTop_toBottomOf="@+id/textSecondPlayerScore"
-            tools:text="0" />
+            tools:text="123" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <include
+    <FrameLayout
         android:id="@+id/firstPlayerDeck"
-        layout="@layout/include_deck"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
