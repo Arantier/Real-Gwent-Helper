@@ -5,14 +5,17 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:layout_marginLeft="@dimen/cardItemMarginHorizontal"
-    android:layout_marginRight="@dimen/cardItemMarginHorizontal">
+    android:layout_marginLeft="@dimen/cardItemMargin"
+    android:layout_marginRight="@dimen/cardItemMargin"
+    android:layout_marginTop="@dimen/cardItemMargin"
+    android:layout_marginBottom="@dimen/cardItemMargin">
 
     <ImageView
         android:id="@+id/backgroundImage"
         android:layout_width="@dimen/cardItemSize"
         android:layout_height="@dimen/cardItemSize"
-        tools:srcCompat="@drawable/ic_card_unit_default_active" />
+        android:scaleType="fitXY"
+        tools:srcCompat="@drawable/ic_card_unit_buff_active" />
 
     <TextView
         android:id="@+id/score"

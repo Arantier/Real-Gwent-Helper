@@ -1,17 +1,20 @@
 package ru.shcherbakov.realgwenthelper.ui
 
 
+import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
 import android.widget.ImageButton
 import androidx.core.view.children
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
+import kotlinx.android.synthetic.main.dialog_bond.view.*
 import kotlinx.android.synthetic.main.fragment_row_menu.*
+import kotlinx.android.synthetic.main.fragment_row_menu.buttonClose
 import kotlinx.android.synthetic.main.fragment_row_menu.view.*
+import kotlinx.android.synthetic.main.fragment_row_menu.view.buttonClose
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Card
 import ru.shcherbakov.realgwenthelper.data.Row
@@ -30,7 +33,6 @@ class RowMenuFragment private constructor(
         layoutMenuEdit.visibility = View.VISIBLE
         buttonRemove.visibility = View.VISIBLE
         buttonApply.visibility = View.VISIBLE
-
         buttonClose.setOnClickListener { closeMenu() }
     }
 
@@ -44,18 +46,18 @@ class RowMenuFragment private constructor(
     }
 
     fun setButtonActive(button: ImageButton) {
-        button.setBackgroundResource(
-            when (button.id) {
-                buttonUnitBuff.id -> R.drawable.ic_card_unit_buff_active
-                buttonUnitHorn.id -> R.drawable.ic_card_unit_horn_active
-                buttonUnitBond.id -> R.drawable.ic_card_unit_bond_active
-                buttonHeroDefault.id -> R.drawable.ic_card_hero_default_active
-                buttonHeroBuff.id -> R.drawable.ic_card_hero_buff_active
-                buttonHeroMushroom.id -> R.drawable.ic_card_hero_mushroom_active
-                buttonUnitBerserk.id -> R.drawable.ic_card_unit_berserk_active
-                else -> R.drawable.ic_card_unit_default_active
-            }
-        )
+        val icon = when (button.id) {
+            buttonUnitBuff.id -> R.drawable.ic_card_unit_buff_active
+            buttonUnitHorn.id -> R.drawable.ic_card_unit_horn_active
+            buttonUnitBond.id -> R.drawable.ic_card_unit_bond_active
+            buttonHeroDefault.id -> R.drawable.ic_card_hero_default_active
+            buttonHeroBuff.id -> R.drawable.ic_card_hero_buff_active
+            buttonHeroMushroom.id -> R.drawable.ic_card_hero_mushroom_active
+            buttonUnitBerserk.id -> R.drawable.ic_card_unit_berserk_active
+            else -> R.drawable.ic_card_unit_default_active
+        }
+        button.setBackgroundResource(icon)
+        imageCardTypeIcon.setImageDrawable(context?.getDrawable(icon))
     }
 
     fun setButtonInActive(button: ImageButton) {
@@ -88,7 +90,7 @@ class RowMenuFragment private constructor(
         constraintLayout.children
             .filter { it != activeButton }
             .forEach { setButtonInActive(it as ImageButton) }
-        setButtonActive(activeButton as ImageButton)
+        setButtonActive(activeButton)
     }
 
     override fun addCard() {
@@ -142,7 +144,7 @@ class RowMenuFragment private constructor(
     }
 
     override fun onClick(v: View?) {
-        when (view?.id) {
+        when (v?.id ?: 0) {
             buttonUnitBuff.id -> setButtonState(BUTTON_UNIT_BUFF)
             buttonUnitHorn.id -> setButtonState(BUTTON_UNIT_HORN)
             buttonUnitBond.id -> setButtonState(BUTTON_UNIT_BOND)
@@ -168,6 +170,8 @@ class RowMenuFragment private constructor(
         }
 
         recyclerCardsList.adapter = CardListAdapter(row.cardList, this@RowMenuFragment)
+        recyclerCardsList.layoutManager =
+            GridLayoutManager(context, 2, GridLayoutManager.HORIZONTAL, false)
 
         constraintLayout.children
             .forEach {

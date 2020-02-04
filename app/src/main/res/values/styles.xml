@@ -44,7 +44,7 @@
     </style>
 
     <style name="scoreCardStyle" parent="AppTheme">
-        <item name="android:textColor">@color/deckPickerPrimaryColor</item>
+        <item name="android:textColor">@color/cardTextColor</item>
     </style>
 
     <style name="scorePickerStyle" parent="AppTheme">
