@@ -28,7 +28,7 @@
         <item name="android:scaleType">fitCenter</item>
         <item name="android:background">@drawable/sel_class_button</item>
         <item name="android:layout_margin">@dimen/effectButtonMargin</item>
-        <item name="android:layout_height">@dimen/effectButtonEffectHeight</item>
+        <item name="android:layout_height">@dimen/effectMenuButtonEffectHeight</item>
     </style>
 
     <style name="toggleButtonDefaultStyle" parent="effectButtonDefaultStyle">
@@ -43,6 +43,10 @@
         <item name="android:scaleType">fitCenter</item>
     </style>
 
+    <style name="scoreCardStyle" parent="AppTheme">
+        <item name="android:textColor">@color/deckPickerPrimaryColor</item>
+    </style>
+
     <style name="scorePickerStyle" parent="AppTheme">
         <item name="android:layout_centerInParent">true</item>
         <item name="np_dividerColor">@color/deckPickerSecondaryColor</item>
@@ -51,6 +55,8 @@
         <item name="np_selectedTextColor">@color/deckPickerPrimaryColor</item>
         <item name="np_textColor">@color/deckPickerSecondaryColor</item>
         <item name="np_value">0</item>
+        <item name="np_textSize">@dimen/costPickerTextSize</item>
+        <item name="np_selectedTextSize">@dimen/cardUsualTextSize</item>
         <item name="android:elevation">1dp</item>
         <item name="android:layout_marginLeft">@dimen/deckMenuPickerMarginHorizontal</item>
         <item name="android:layout_marginRight">@dimen/deckMenuPickerMarginHorizontal</item>

@@ -19,12 +19,14 @@
         android:id="@+id/buttonClear"
         android:layout_width="@dimen/weatherButtonSize"
         android:layout_height="@dimen/weatherButtonSize"
+        android:layout_marginTop="@dimen/weatherMenuPaddingVertical"
+        android:layout_marginBottom="@dimen/weatherMenuPaddingVertical"
+        android:background="@drawable/ic_button_clear"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/buttonClose"
         app:layout_constraintEnd_toStartOf="@+id/buttonFrost"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:background="@drawable/ic_button_clear" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <ToggleButton
         android:id="@+id/buttonFrost"

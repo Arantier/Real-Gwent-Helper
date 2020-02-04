@@ -10,6 +10,8 @@
     <color name="classIconColor">#3b3531</color>
     <color name="buttonColor">@color/colorAccent</color>
     <color name="scoreTextColor">#bdbdbd</color>
+    <color name="firstPlayerScoreColor">#dea695</color>
+    <color name="secondPlayerScoreColor">#9acbed</color>
 
     <color name="buttonOnColor">@color/colorAccent</color>
     <color name="buttonOffColor">#bdbdbd</color>

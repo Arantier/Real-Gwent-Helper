@@ -4,13 +4,17 @@
     <item
         android:id="@+id/backgroundImages"
         android:drawable="@drawable/bkg_toggle_button"
+        android:top="@dimen/effectButtonBackgroundPaddingVertical"
+        android:bottom="@dimen/effectButtonBackgroundPaddingVertical"
+        android:left="@dimen/effectButtonBackgroundPaddingHorizontal"
+        android:right="@dimen/effectButtonBackgroundPaddingHorizontal"
         />
 
     <item
         android:id="@+id/imageMushroom"
         android:drawable="@drawable/ic_mushroom"
-        android:top="@dimen/hornButtonIconPaddingVertical"
-        android:bottom="@dimen/hornButtonIconPaddingVertical"
-        android:left="@dimen/hornButtonIconPaddingHorizontal"
-        android:right="@dimen/hornButtonIconPaddingHorizontal"/>
+        android:top="@dimen/buttonIconPaddingVertical"
+        android:bottom="@dimen/buttonIconPaddingVertical"
+        android:left="@dimen/buttonIconPaddingHorizontal"
+        android:right="@dimen/buttonIconPaddingHorizontal"/>
 </layer-list>

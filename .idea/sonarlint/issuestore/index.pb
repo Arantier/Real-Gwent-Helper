@@ -68,8 +68,6 @@ D
 assets/sword.svg,5/2/52d4344be95481b45c819e65d467fb34d7ac8479
 >
 assets/bow.svg,f/9/f97d871142f58eb798d5ced86fbe4f5038ba1dae
-s
-Capp/src/test/java/ru/shcherbakov/realgwenthelper/ExampleUnitTest.kt,1/8/18d2eee3fbb858c51064d3edbba926a49b6ef1ce
 ‚
 Rapp/src/androidTest/java/ru/shcherbakov/realgwenthelper/ExampleInstrumentedTest.kt,0/6/067d90c6e8e1052fca1b7cbe769ac3b6016cf617
 Y
@@ -86,8 +84,6 @@ w
 Gapp/src/main/java/ru/shcherbakov/realgwenthelper/ui/DeckMenuFragment.kt,f/e/fe33ed2755a9fc8b8898dcc62a291fa26f8df0c6
 s
 Capp/src/main/java/ru/shcherbakov/realgwenthelper/ui/MainActivity.kt,2/b/2b2136a530153797e49679c1d5710685e7a08765
-o
-?app/src/main/java/ru/shcherbakov/realgwenthelper/data/Player.kt,c/b/cb30c5cb14ff4a0bf374f10c5dbe3ff9ff0f9f6b
 s
 Capp/src/main/java/ru/shcherbakov/realgwenthelper/ui/DeckFragment.kt,b/a/badf5fb7b238d16b31bc0d9b831021d44edbd73b
 m

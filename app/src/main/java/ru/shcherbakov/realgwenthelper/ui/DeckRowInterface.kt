@@ -1,4 +1,6 @@
-package ru.shcherbakov.realgwenthelper.data
+package ru.shcherbakov.realgwenthelper.ui
+
+import ru.shcherbakov.realgwenthelper.data.Row
 
 //TODO: Название поменяй
 interface DeckRowInterface {

@@ -105,6 +105,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textFirstPlayerScoreInversed"
             app:layout_constraintRight_toLeftOf="@+id/imageFirstPlayerGem1"
             app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/firstPlayerScoreColor"
             tools:text="123" />
 
         <TextView
@@ -116,6 +117,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textFirstPlayerScore"
             app:layout_constraintTop_toBottomOf="@+id/textFirstPlayerScore"
+            android:textColor="@color/firstPlayerScoreColor"
             tools:text="123" />
 
         <TextView
@@ -127,6 +129,7 @@
             app:layout_constraintBottom_toTopOf="@+id/textSecondPlayerScoreInversed"
             app:layout_constraintStart_toEndOf="@+id/imageSecondPlayerGem1"
             app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/secondPlayerScoreColor"
             tools:text="123" />
 
         <TextView
@@ -135,6 +138,7 @@
             android:layout_width="@dimen/summaryScoreTextWidth"
             android:layout_height="wrap_content"
             android:rotation="180"
+            android:textColor="@color/secondPlayerScoreColor"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="@+id/textSecondPlayerScore"
             app:layout_constraintTop_toBottomOf="@+id/textSecondPlayerScore"

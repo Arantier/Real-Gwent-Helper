@@ -28,50 +28,13 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <ImageButton
-            android:id="@+id/buttonLeaderMenu"
-            android:layout_width="@dimen/deckLeaderMenuButtonWidth"
-            android:layout_height="0dp"
-            android:scaleType="fitCenter"
-            app:layout_constraintBottom_toTopOf="@id/buttonPass"
-            app:layout_constraintEnd_toStartOf="@id/infantry"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:srcCompat="@drawable/ic_crown" />
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/leaderMenu"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:elevation="1dp"
-            android:visibility="gone"
-            tools:visibility="visible"
-            app:layout_constraintBottom_toTopOf="@+id/buttonPass"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent">
-
-            <CheckBox
-                android:id="@+id/checkBranAbility"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title_bran_ability"
-                android:buttonTint="@color/textColorPrimary"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                android:textColor="@color/textColorPrimary"/>
-        </androidx.constraintlayout.widget.ConstraintLayout>
-
         <FrameLayout
             android:id="@+id/infantry"
             android:layout_width="0dp"
             android:layout_height="0dp"
             app:layout_constraintBottom_toTopOf="@id/buttonPass"
             app:layout_constraintEnd_toStartOf="@+id/archery"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toEndOf="@id/buttonLeaderMenu"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <FrameLayout
@@ -122,7 +85,6 @@
             android:layout_height="0dp"
             android:elevation="-1dp"
             android:src="@drawable/ic_infantry"
-            android:layout_marginLeft="@dimen/deckLeaderMenuButtonWidth"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/imageArchery"
             app:layout_constraintHorizontal_bias="0.5"

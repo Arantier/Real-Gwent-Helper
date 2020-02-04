@@ -36,5 +36,6 @@ dependencies {
     implementation 'com.shawnlin:number-picker:2.4.8'
     implementation 'androidx.recyclerview:recyclerview:1.1.0'
 
-    implementation("io.reactivex.rxjava2:rxkotlin:2.4.0")
+    implementation "io.reactivex.rxjava3:rxjava:3.0.0-RC9"
+    implementation"io.reactivex.rxjava2:rxkotlin:2.4.0"
 }

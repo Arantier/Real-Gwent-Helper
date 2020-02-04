@@ -5,32 +5,12 @@
     android:layout_height="match_parent"
     android:layout_width="match_parent">
 
-    <ToggleButton
-        android:id="@+id/toggleHorn"
-        style="@style/toggleButtonDefaultStyle"
-        android:layout_width="0dp"
-        android:background="@drawable/ic_button_horn"
-        app:layout_constraintEnd_toStartOf="@+id/toggleMushroom"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonScorch" />
-
-    <ToggleButton
-        android:id="@+id/toggleMushroom"
-        style="@style/toggleButtonDefaultStyle"
-        android:layout_width="0dp"
-        android:background="@drawable/ic_button_mushroom"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/toggleHorn"
-        app:layout_constraintTop_toBottomOf="@+id/buttonScorch" />
-
     <ImageButton
-        android:id="@+id/buttonScorch"
+        android:id="@+id/buttonBuffs"
         style="@style/effectButtonDefaultStyle"
         android:layout_width="0dp"
         android:scaleType="fitCenter"
-        android:src="@drawable/ic_skull"
+        android:src="@drawable/ic_buff_menu"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -44,7 +24,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonEditDeck"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/buttonScorch"
+        app:layout_constraintTop_toBottomOf="@+id/buttonBuffs"
         tools:text="420" />
 
     <ImageButton

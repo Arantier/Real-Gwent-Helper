@@ -3,7 +3,8 @@ package ru.shcherbakov.realgwenthelper.data
 data class Card(
     val cost: Int,
     val type: Int,
-    val bonus: Int
+    val bonus: Int,
+    var finalCost: Int = cost
 ) {
     companion object {
         val TYPE_UNIT = 0

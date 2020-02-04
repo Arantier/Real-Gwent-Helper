@@ -14,7 +14,7 @@ class RowTest {
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(3))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(3))
     }
 
     @Test
@@ -23,19 +23,19 @@ class RowTest {
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.hornActive = true
-        assertThat(row.cardList.sumBy { it.cost }, `is`(4))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(4))
 
         row = Row()
         row.hornActive = true
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(4))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(4))
 
         row = Row()
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.hornActive = true
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(4))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(4))
     }
 
     @Test
@@ -44,19 +44,19 @@ class RowTest {
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.badWeather = true
-        assertThat(row.cardList.sumBy { it.cost }, `is`(2))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(2))
 
         row = Row()
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.badWeather = true
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(2))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(2))
 
         row = Row()
         row.badWeather = true
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(2))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(2))
     }
 
     @Test
@@ -65,7 +65,7 @@ class RowTest {
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
         row.hornActive = true
-        assertThat(row.cardList.sumBy { it.cost }, `is`(12))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(12))
     }
 
     @Test
@@ -74,7 +74,7 @@ class RowTest {
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
         row.badWeather = true
-        assertThat(row.cardList.sumBy { it.cost }, `is`(11))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(11))
     }
 
     @Test
@@ -83,7 +83,7 @@ class RowTest {
         row.badWeather = true
         row.hornActive = true
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(2))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(2))
     }
 
     @Test
@@ -92,7 +92,7 @@ class RowTest {
         row.badWeather = true
         row.bran = true
         row.addCard(Card(10, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(5))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(5))
     }
 
     @Test
@@ -103,7 +103,7 @@ class RowTest {
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), mainCard)
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), mainCard)
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(40))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(40))
     }
 
     @Test
@@ -111,7 +111,7 @@ class RowTest {
         val row = Row()
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BUFF))
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(9))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(9))
     }
 
     @Test
@@ -120,7 +120,7 @@ class RowTest {
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BUFF))
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_NONE))
         row.addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
-        assertThat(row.cardList.sumBy { it.cost }, `is`(19))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(19))
     }
 
     @Test
@@ -131,7 +131,7 @@ class RowTest {
         row.addCard(Card(2, Card.TYPE_UNIT, Card.BONUS_BERSERK))
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_BERSERK))
         row.enableMushroom()
-        assertThat(row.cardList.sumBy { it.cost }, `is`(54))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(54))
     }
 
     @Test
@@ -143,7 +143,7 @@ class RowTest {
         row.addCard(Card(1, Card.TYPE_UNIT, Card.BONUS_BERSERK))
         row.addCard(Card(10, Card.TYPE_HERO, Card.BONUS_MUSHROOM))
         row.enableMushroom()
-        assertThat(row.cardList.sumBy { it.cost }, `is`(64))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(64))
     }
 
     @Test
@@ -161,7 +161,7 @@ class RowTest {
             addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
             addCard(Card(15, Card.TYPE_HERO, Card.BONUS_NONE))
         }
-        assertThat(row.cardList.sumBy { it.cost }, `is`(100))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(100))
     }
 
     @Test
@@ -180,7 +180,7 @@ class RowTest {
             addCard(Card(15, Card.TYPE_HERO, Card.BONUS_NONE))
             scorch()
         }
-        assertThat(row.cardList.sumBy { it.cost }, `is`(61))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(61))
     }
 
     @Test
@@ -200,6 +200,6 @@ class RowTest {
             addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
             addCard(Card(15, Card.TYPE_HERO, Card.BONUS_NONE))
         }
-        assertThat(row.cardList.sumBy { it.cost }, `is`(78))
+        assertThat(row.cardList.sumBy { it.finalCost }, `is`(78))
     }
 }

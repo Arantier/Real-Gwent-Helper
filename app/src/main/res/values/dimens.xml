@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <dimen name="effectButtonSize">50dp</dimen>
     <dimen name="effectButtonCornerRadius">3dp</dimen>
     <dimen name="effectButtonMargin">8dp</dimen>
-    <dimen name="effectButtonEffectHeight">39dp</dimen>
+    <dimen name="effectMenuButtonEffectHeight">32dp</dimen>
     <dimen name="effectButtonBackgroundPaddingVertical">5dp</dimen>
     <dimen name="effectButtonBackgroundPaddingHorizontal">3dp</dimen>
-    <dimen name="hornButtonIconPaddingHorizontal">8dp</dimen>
-    <dimen name="hornButtonIconPaddingVertical">9dp</dimen>
+    <dimen name="effectMenuPaddingVertical">16dp</dimen>
+    <dimen name="buttonIconPaddingHorizontal">8dp</dimen>
+    <dimen name="buttonIconPaddingVertical">9dp</dimen>
 
     <dimen name="deckButtonSize">64dp</dimen>
     <dimen name="deckButtonMarginBottom">16dp</dimen>
@@ -24,15 +26,18 @@
     <dimen name="summaryScoreTextSize">24sp</dimen>
     <dimen name="summaryScoreTextWidth">48dp</dimen>
 
+    <dimen name="costPickerTextSize">26sp</dimen>
     <dimen name="cardUsualTextSize">42sp</dimen>
     <dimen name="cardBorderWidth">4dp</dimen>
     <dimen name="cardItemSize">64dp</dimen>
+    <dimen name="cardItemMarginHorizontal">12dp</dimen>
     <dimen name="cardImageMargin">14dp</dimen>
     <dimen name="cardImageHornMargin">12dp</dimen>
     <dimen name="cardBuffTextSize">36sp</dimen>
 
     <dimen name="weatherButtonSize">50dp</dimen>
     <dimen name="weatherButtonMarginHorizontal">10dp</dimen>
+    <dimen name="weatherMenuPaddingVertical">8dp</dimen>
 
     <dimen name="bondDialogTitleSize">18sp</dimen>
 </resources>

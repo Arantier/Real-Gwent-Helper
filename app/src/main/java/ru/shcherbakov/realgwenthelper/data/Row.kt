@@ -1,5 +1,6 @@
 package ru.shcherbakov.realgwenthelper.data
 
+import io.reactivex.subjects.BehaviorSubject
 import io.reactivex.subjects.PublishSubject
 
 class Row {
@@ -11,7 +12,7 @@ class Row {
     private var isHorny = false
     private var isFuckingBran = false
 
-    val liveScore = PublishSubject.create<Int>().apply { 0 }
+    val liveScore = BehaviorSubject.create<Int>().apply { onNext(0) }
 
     var badWeather
         get() = isBadWeather
@@ -39,39 +40,38 @@ class Row {
             }
         }
 
-    val cardList: Iterable<Card>
+    var _mushroom = false
+    val mushroomActive
+        get() = _mushroom
+
+    val cardList: ArrayList<Card>
         get() {
-            val _cardList = ArrayList<Card>()
-            _heroesCardList.forEach {
-                _cardList.add(it.copy())
-            }
             val isHornActive = isHorny || _unitsCardList.any { it.bonus == Card.BONUS_HORN } ||
                     _heroesCardList.any { it.bonus == Card.BONUS_HORN }
             val numberOfBuffs = _unitsCardList.count { it.bonus == Card.BONUS_BUFF } +
                     _heroesCardList.count { it.bonus == Card.BONUS_BUFF }
             _unitsCardList.forEach { card ->
-                var cost = card.cost
+                card.finalCost = card.cost
                 if (isBadWeather && isFuckingBran) {
-                    cost /= 2
+                    card.finalCost /= 2
                 } else if (isBadWeather) {
-                    cost = 1
+                    card.finalCost = 1
                 }
                 // Применяем бонус связи
-                cost *= bondedCardsList.find { it.contains(card) }?.count() ?: 1
+                card.finalCost *= bondedCardsList.find { it.contains(card) }?.count() ?: 1
                 // Добавляем бонусы от поддержки ряда
-                cost += numberOfBuffs
+                card.finalCost += numberOfBuffs
                 // Если карта сама поддерживает ряд, то вычитаем её значение
                 if (card.bonus == Card.BONUS_BUFF) {
-                    cost -= 1
+                    card.finalCost -= 1
                 }
                 // Если карта не имеет бонус рога и активен командирский рог или сам рог глобален,
                 // то умножаем цену карты на 2
                 if ((card.bonus != Card.BONUS_HORN || isHorny) && isHornActive) {
-                    cost *= 2
+                    card.finalCost *= 2
                 }
-                _cardList.add(Card(cost, card.type, card.bonus))
             }
-            return _cardList
+            return (_heroesCardList.clone() as ArrayList<Card>).apply { addAll(_unitsCardList) }
         }
 
     fun addCard(card: Card, bondedCard: Card? = null) {
@@ -93,6 +93,7 @@ class Row {
             }
             Card.BONUS_MUSHROOM -> enableMushroom()
         }
+        updateScore()
     }
 
     fun removeCard(card: Card) {
@@ -109,6 +110,7 @@ class Row {
         } else {
             _heroesCardList.remove(card)
         }
+        updateScore()
     }
 
     fun editCard(oldCard: Card, editedCard: Card) {
@@ -117,43 +119,21 @@ class Row {
     }
 
     fun scorch() {
-        val isHornActive = isHorny || _unitsCardList.any { it.bonus == Card.BONUS_HORN } ||
-                _heroesCardList.any { it.bonus == Card.BONUS_HORN }
-        val numberOfBuffs = _unitsCardList.count { it.bonus == Card.BONUS_BUFF } +
-                _heroesCardList.count { it.bonus == Card.BONUS_BUFF }
-        val cardMap = _unitsCardList.map { card ->
-            var cost = card.cost
-            if (isBadWeather && isFuckingBran) {
-                cost /= 2
-            } else if (isBadWeather) {
-                cost = 1
-            }
-            // Применяем бонус связи
-            cost *= bondedCardsList.find { it.contains(card) }?.count() ?: 1
-            // Добавляем бонусы от поддержки ряда
-            cost += numberOfBuffs
-            // Если карта сама поддерживает ряд, то вычитаем её значение
-            if (card.bonus == Card.BONUS_BUFF) {
-                cost -= 1
-            }
-            // Если карта не имеет бонус рога и активен командирский рог или сам рог глобален,
-            // то умножаем цену карты на 2
-            if ((card.bonus != Card.BONUS_HORN || isHorny) && isHornActive) {
-                cost *= 2
-            }
-            Pair(card, cost)
-        }
-        val maxCost = cardMap.maxBy { it.second }?.second ?: 0
-        cardMap.filter { it.second == maxCost }
+        val maxCost = cardList.filter { it.type == Card.TYPE_UNIT }
+            .maxBy { it.finalCost }
+            ?.finalCost ?: 0
+        _unitsCardList.filter { it.finalCost == maxCost }
             .forEach {
-                removeCard(it.first)
+                removeCard(it)
             }
+        updateScore()
     }
 
     fun enableMushroom() {
         // Тут небольшая хитрая проверка на эффект карты. Если стоимость равна 4 - это берсерк,
         // т.е. должен быть бафф на ряд. Если стоимость равна 2 - это вильдкаарл,значит должна быть связь
         // Если стоимость не пойми чему равна - значит это проблемы игрока
+        _mushroom = true
         _unitsCardList.filter { it.bonus == Card.BONUS_BERSERK }
             .forEach { berserkingCard ->
                 if (berserkingCard.cost == 4) {
@@ -185,6 +165,7 @@ class Row {
                 }
 
             }
+        updateScore()
     }
 
     fun updateScore() {

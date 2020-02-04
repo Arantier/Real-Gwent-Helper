@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
-    android:orientation="vertical">
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    android:layout_marginLeft="@dimen/cardItemMarginHorizontal"
+    android:layout_marginRight="@dimen/cardItemMarginHorizontal">
 
     <ImageView
-        android:id="@+id/backgroundImages"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:id="@+id/backgroundImage"
+        android:layout_width="@dimen/cardItemSize"
+        android:layout_height="@dimen/cardItemSize"
+        tools:srcCompat="@drawable/ic_card_unit_default_active" />
 
     <TextView
         android:id="@+id/score"
@@ -17,5 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:textSize="@dimen/cardUsualTextSize"
-        android:textColor="@color/cardUnitTextColor"/>
+        style="@style/scoreCardStyle"
+        tools:text="+" />
 </FrameLayout>

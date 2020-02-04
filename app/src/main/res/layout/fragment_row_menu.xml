@@ -8,10 +8,11 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerCardsList"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:orientation="horizontal"
         android:visibility="visible"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toTopOf="@+id/buttonClose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -35,15 +36,15 @@
         android:text="@string/title_remove"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/buttonClose"
-        app:layout_constraintLeft_toRightOf="@id/buttonKeep"
+        app:layout_constraintLeft_toRightOf="@id/buttonApply"
         app:layout_constraintRight_toLeftOf="@id/buttonClose"
         app:layout_constraintTop_toTopOf="@id/buttonClose" />
 
     <Button
-        android:id="@+id/buttonKeep"
+        android:id="@+id/buttonApply"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        android:text="@string/title_keep"
+        android:text="@string/title_apply"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="@id/buttonClose"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -54,7 +55,7 @@
         android:id="@+id/imageRowIcon"
         style="@style/rowImageStyle"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="wrap_content"
         android:elevation="-2dp"
         app:layout_constraintBottom_toTopOf="@+id/buttonClose"
         app:layout_constraintEnd_toEndOf="parent"
@@ -69,7 +70,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonClose"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        tools:visibility="visible">
 
         <ImageView
             android:id="@+id/imageCardTypeIcon"
@@ -108,36 +110,36 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toEndOf="@+id/numberPicker"
-            app:layout_constraintTop_toBottomOf="@+id/textTypeTitle">
+            app:layout_constraintTop_toBottomOf="@+id/textTypeTitle"
+            tools:visibility="visible">
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonUnitDefault"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_unit_default"
-                android:checked="true"
+                android:background="@drawable/ic_card_unit_default_active"
                 app:layout_constraintBottom_toTopOf="@+id/buttonHeroDefault"
                 app:layout_constraintEnd_toStartOf="@+id/buttonUnitBuff"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonUnitBuff"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_unit_buff"
+                android:background="@drawable/ic_card_unit_buff_inactive"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonUnitDefault"
                 app:layout_constraintEnd_toStartOf="@+id/buttonUnitHorn"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/buttonUnitDefault"
                 app:layout_constraintTop_toTopOf="@+id/buttonUnitDefault" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonUnitHorn"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_unit_horn"
+                android:background="@drawable/ic_card_unit_horn_inactive"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonUnitDefault"
                 app:layout_constraintEnd_toStartOf="@+id/buttonUnitBond"
                 app:layout_constraintHorizontal_bias="0.5"
@@ -145,55 +147,55 @@
                 app:layout_constraintTop_toTopOf="@+id/buttonUnitDefault"
                 app:layout_constraintVertical_bias="0.0" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonUnitBond"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_unit_bond"
+                android:background="@drawable/ic_card_unit_bond_inactive"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonUnitDefault"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/buttonUnitHorn"
                 app:layout_constraintTop_toTopOf="@+id/buttonUnitDefault" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonHeroDefault"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_hero_default"
+                android:background="@drawable/ic_card_hero_default_inactive"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toStartOf="@+id/buttonHeroBuff"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/buttonUnitDefault" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonHeroBuff"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_hero_buff"
+                android:background="@drawable/ic_card_hero_buff_inactive"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonHeroDefault"
                 app:layout_constraintEnd_toStartOf="@+id/buttonHeroMushroom"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/buttonHeroDefault"
                 app:layout_constraintTop_toTopOf="@+id/buttonHeroDefault" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonHeroMushroom"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_hero_mushroom"
+                android:background="@drawable/ic_card_hero_mushroom_inactive"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonHeroDefault"
                 app:layout_constraintEnd_toStartOf="@+id/buttonUnitBerserk"
                 app:layout_constraintHorizontal_bias="0.5"
                 app:layout_constraintStart_toEndOf="@+id/buttonHeroBuff"
                 app:layout_constraintTop_toTopOf="@+id/buttonHeroDefault" />
 
-            <Button
+            <ImageButton
                 android:id="@+id/buttonUnitBerserk"
                 android:layout_width="@dimen/cardItemSize"
                 android:layout_height="@dimen/cardItemSize"
-                android:background="@drawable/ic_card_unit_berserk"
+                android:background="@drawable/ic_card_unit_berserk_inactive"
                 app:layout_constraintBottom_toBottomOf="@+id/buttonHeroDefault"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.5"

@@ -1,25 +1,43 @@
 package ru.shcherbakov.realgwenthelper.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
+import io.reactivex.rxkotlin.zipWith
+import io.reactivex.subjects.BehaviorSubject
 import kotlinx.android.synthetic.main.fragment_deck.*
 import kotlinx.android.synthetic.main.fragment_deck.backgroundImages
-import kotlinx.android.synthetic.main.fragment_deck.view.*
 import ru.shcherbakov.realgwenthelper.R
-import ru.shcherbakov.realgwenthelper.data.DeckRowInterface
+import ru.shcherbakov.realgwenthelper.data.Player
 import ru.shcherbakov.realgwenthelper.data.Row
 
-class DeckFragment private constructor() : Fragment(), DeckRowInterface {
+class DeckFragment private constructor(val player: Player) : Fragment(), DeckRowInterface {
+    val rowInfantry = RowFragment.newInstance(
+        this,
+        RowFragment.TYPE_INFANTRY,
+        if (player.name.equals("First")) RowFragment.FIRST_PLAYER else RowFragment.SECOND_PLAYER
+    )
+    val rowArchery = RowFragment.newInstance(
+        this, RowFragment.TYPE_ARCHERY,
+        if (player.name.equals("First")) RowFragment.FIRST_PLAYER else RowFragment.SECOND_PLAYER
+    )
+    val rowSiege = RowFragment.newInstance(
+        this, RowFragment.TYPE_SIEGE,
+        if (player.name.equals("First")) RowFragment.FIRST_PLAYER else RowFragment.SECOND_PLAYER
+    )
+
+    var infantryScore = 0
+    var archeryScore = 0
+    var siegeScore = 0
 
     private var mode = DECK_MODE
 
     override fun showRowMenu(row: Row, type: Int) {
         childFragmentManager.beginTransaction()
-            .add(R.id.menu, DeckMenuFragment.newInstance(this, type), MENU_KEY)
+            .add(R.id.menu, RowMenuFragment.newInstance(row, this, type), MENU_KEY)
             .commit()
         rows.visibility = View.GONE
         backgroundImages.visibility = View.GONE
@@ -46,38 +64,27 @@ class DeckFragment private constructor() : Fragment(), DeckRowInterface {
         childFragmentManager.apply {
             beginTransaction()
                 .add(
-                    R.id.infantry,
-                    RowFragment.newInstance(this@DeckFragment, RowFragment.TYPE_INFANTRY)
+                    R.id.infantry, rowInfantry
                 )
                 .add(
-                    R.id.archery,
-                    RowFragment.newInstance(this@DeckFragment, RowFragment.TYPE_ARCHERY)
+                    R.id.archery, rowArchery
                 )
                 .add(
-                    R.id.siege,
-                    RowFragment.newInstance(this@DeckFragment, RowFragment.TYPE_SIEGE)
+                    R.id.siege, rowSiege
                 )
                 .commit()
         }
-
-        this.buttonLeaderMenu.setOnClickListener {
-            if (mode == DECK_MODE) {
-                backgroundImages.visibility = View.GONE
-                infantry.visibility = View.INVISIBLE
-                archery.visibility = View.INVISIBLE
-                siege.visibility = View.INVISIBLE
-                leaderMenu.visibility = View.VISIBLE
-                (it as ImageButton).setImageDrawable(context?.getDrawable(R.drawable.ic_back))
-                mode = LEADER_MODE
-            } else {
-                backgroundImages.visibility = View.VISIBLE
-                infantry.visibility = View.VISIBLE
-                archery.visibility = View.VISIBLE
-                siege.visibility = View.VISIBLE
-                leaderMenu.visibility = View.GONE
-                (it as ImageButton).setImageDrawable(context?.getDrawable(R.drawable.ic_crown))
-                mode = DECK_MODE
-            }
+        rowInfantry.score.subscribe {
+            infantryScore = it
+            player.score.onNext(infantryScore + archeryScore + siegeScore)
+        }
+        rowArchery.score.subscribe {
+            archeryScore = it
+            player.score.onNext(infantryScore + archeryScore + siegeScore)
+        }
+        rowSiege.score.subscribe {
+            siegeScore = it
+            player.score.onNext(infantryScore + archeryScore + siegeScore)
         }
     }
 
@@ -87,8 +94,8 @@ class DeckFragment private constructor() : Fragment(), DeckRowInterface {
         val DECK_MODE = 0
         val EDIT_MODE = 1
         val LEADER_MODE = 2
-        fun newInstance(): DeckFragment {
-            return DeckFragment()
+        fun newInstance(player: Player): DeckFragment {
+            return DeckFragment(player)
         }
     }
 }

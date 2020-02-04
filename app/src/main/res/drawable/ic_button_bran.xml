@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_checked="true">
+        <layer-list>
+            <item android:drawable="@drawable/bkg_effect_button_full_active"  android:bottom="@dimen/effectButtonBackgroundPaddingVertical" android:left="@dimen/effectButtonBackgroundPaddingHorizontal" android:right="@dimen/effectButtonBackgroundPaddingHorizontal" android:top="@dimen/effectButtonBackgroundPaddingVertical"  />
+            <item android:drawable="@drawable/bran" android:bottom="@dimen/effectButtonBackgroundPaddingVertical" android:left="@dimen/effectButtonBackgroundPaddingHorizontal" android:right="@dimen/effectButtonBackgroundPaddingHorizontal" android:top="@dimen/effectButtonBackgroundPaddingVertical"  />
+        </layer-list>
+    </item>
+
+    <item android:state_checked="false">
+        <layer-list>
+            <item android:drawable="@drawable/bkg_effect_button_full_inactive" android:bottom="@dimen/effectButtonBackgroundPaddingVertical" android:left="@dimen/effectButtonBackgroundPaddingHorizontal" android:right="@dimen/effectButtonBackgroundPaddingHorizontal" android:top="@dimen/effectButtonBackgroundPaddingVertical"  />
+            <item android:drawable="@drawable/bran_dark"  android:bottom="@dimen/effectButtonBackgroundPaddingVertical" android:left="@dimen/effectButtonBackgroundPaddingHorizontal" android:right="@dimen/effectButtonBackgroundPaddingHorizontal" android:top="@dimen/effectButtonBackgroundPaddingVertical" />
+        </layer-list>
+    </item>
+
+</selector>
