@@ -9,6 +9,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.view.children
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.dialog_buffs.*
+import kotlinx.android.synthetic.main.dialog_weather.*
 import kotlinx.android.synthetic.main.dialog_weather.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Player
@@ -63,8 +65,14 @@ public class MainActivity : AppCompatActivity() {
             if (firstPlayer.lives != 0 && secondPlayer.lives != 0) {
                 firstPlayer.isPassed = false
                 secondPlayer.isPassed = false
-                firstPlayerDeck.resetDeck()
-                secondPlayerDeck.resetDeck()
+                arrayOf(firstPlayerDeck, secondPlayerDeck).forEach { player ->
+                    player.resetDeck()
+                }
+
+                weatherDialog.buttonFrost.isChecked = false
+                weatherDialog.buttonFog.isChecked = false
+                weatherDialog.buttonRain.isChecked = false
+                weatherDialog.buttonStorm.isChecked = false
             } else {
                 resultView.visibility = View.VISIBLE
                 if (firstPlayer.lives == 0 && secondPlayer.lives != 0) {
