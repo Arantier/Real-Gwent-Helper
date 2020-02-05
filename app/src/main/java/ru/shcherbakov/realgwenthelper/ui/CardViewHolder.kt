@@ -31,6 +31,13 @@ class CardViewHolder(val view: View, val openEditorListener: OpenEditorListener)
         )
 
         view.score.text = card.finalCost.toString()
+        if (card.cost<card.finalCost){
+            view.score.setTextColor(view.context.resources.getColor(R.color.cardBuffedTextColor))
+        } else if (card.cost > card.finalCost){
+            view.score.setTextColor(view.context.resources.getColor(R.color.cardWeakenedTextColor))
+        } else {
+            view.score.setTextColor(view.context.resources.getColor(R.color.cardTextColor))
+        }
         view.setOnClickListener { openEditorListener.editCard(card) }
     }
 }

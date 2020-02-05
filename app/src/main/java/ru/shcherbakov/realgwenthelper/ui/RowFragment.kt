@@ -7,6 +7,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ToggleButton
 import kotlinx.android.synthetic.main.dialog_buffs.view.*
 import kotlinx.android.synthetic.main.fragment_row.view.*
 import ru.shcherbakov.realgwenthelper.R
@@ -34,8 +35,27 @@ class RowFragment private constructor(val deckRowInterface: DeckRowInterface, va
         buttonBuffs.setOnClickListener {
             buffDialog = AlertDialog.Builder(context)
                 .setView(layoutInflater.inflate(R.layout.dialog_buffs, null).apply {
+                    buttonHorn.isChecked = row.hornActive
+                    buttonBran.isChecked = row.bran
+
                     buttonClose.setOnClickListener {
                         buffDialog.hide()
+                    }
+
+                    buttonScorch.setOnClickListener {
+                        row.scorch()
+                    }
+
+                    buttonMushroom.setOnClickListener {
+                        row.enableMushroom()
+                    }
+
+                    buttonHorn.setOnClickListener{
+                        row.hornActive = (it as ToggleButton).isChecked
+                    }
+
+                    buttonBran.setOnClickListener {
+                        row.bran = (it as ToggleButton).isChecked
                     }
                 })
                 .create()

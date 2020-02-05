@@ -17,6 +17,8 @@
     <color name="buttonOffColor">#bdbdbd</color>
 
     <color name="cardTextColor">#6B6B6B</color>
+    <color name="cardBuffedTextColor">#71AA78</color>
+    <color name="cardWeakenedTextColor">#CC7474</color>
     <color name="cardUnitBorderColor">#e17f37</color>
     <color name="cardUnitBorderColorInactive">#AA844a18</color>
     <color name="cardUnitBackgroundColorStart">#8b8b8b</color>

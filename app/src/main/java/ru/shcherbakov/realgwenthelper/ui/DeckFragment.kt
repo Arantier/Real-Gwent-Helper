@@ -33,8 +33,6 @@ class DeckFragment private constructor(val player: Player) : Fragment(), DeckRow
     var archeryScore = 0
     var siegeScore = 0
 
-    private var mode = DECK_MODE
-
     override fun showRowMenu(row: Row, type: Int) {
         childFragmentManager.beginTransaction()
             .add(R.id.menu, RowMenuFragment.newInstance(row, this, type), MENU_KEY)
@@ -91,9 +89,6 @@ class DeckFragment private constructor(val player: Player) : Fragment(), DeckRow
     companion object {
         private val MENU_KEY = "menu"
 
-        val DECK_MODE = 0
-        val EDIT_MODE = 1
-        val LEADER_MODE = 2
         fun newInstance(player: Player): DeckFragment {
             return DeckFragment(player)
         }
