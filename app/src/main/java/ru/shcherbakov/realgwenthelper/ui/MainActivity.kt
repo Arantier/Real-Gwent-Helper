@@ -13,7 +13,7 @@ import kotlinx.android.synthetic.main.dialog_weather.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Player
 
-class MainActivity : AppCompatActivity() {
+public class MainActivity : AppCompatActivity() {
 
     private lateinit var weatherDialog: Dialog
     private val firstPlayer = Player("First")
