@@ -9,4 +9,7 @@
     <string name="title_leader_menu">Эффекты лидера</string>
     <string name="title_bran_ability">Способность Короля Брана</string>
     <string name="title_new_bond">Новая связь</string>
+    <string name="title_won">Вы победили!</string>
+    <string name="title_lose">Вы проиграли.</string>
+    <string name="title_tie">Ничья.</string>
 </resources>

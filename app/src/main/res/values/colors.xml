@@ -5,6 +5,7 @@
     <color name="colorAccent">#D3B03F</color>
     <color name="textColorPrimary">#bdbdbd</color>
     <color name="textColorSecondary">#000</color>
+    <color name="blockerColor">#5000</color>
 
     <color name="backgroundColor">#261d18</color>
     <color name="classIconColor">#3b3531</color>
@@ -41,4 +42,6 @@
     <color name="deckPickerSecondaryColor">#bdbdbd</color>
     <color name="deckTypeMessageTextColor">#bdbdbd</color>
     <color name="deckTypeMessageBackgroundColor">#484540</color>
+
+    <color name="resultTextColor">#FFF</color>
 </resources>

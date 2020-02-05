@@ -8,35 +8,58 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ToggleButton
+import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.dialog_buffs.view.*
+import kotlinx.android.synthetic.main.fragment_deck.*
+import kotlinx.android.synthetic.main.fragment_row.*
 import kotlinx.android.synthetic.main.fragment_row.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Row
 
-class RowFragment private constructor(val deckRowInterface: DeckRowInterface, val rowType: Int, val playerType : Int) :
+class RowFragment private constructor(
+    val deckRowInterface: DeckRowInterface,
+    val rowType: Int,
+    val playerType: Int
+) :
     Fragment() {
 
     private var row = Row()
     private lateinit var buffDialog: AlertDialog
+    private lateinit var scoreDisposable: Disposable
 
-    val score = row.liveScore
+    val score
+        get() = row.liveScore
     var badWeather
         get() = row.badWeather
         set(value) {
             row.badWeather = value
         }
 
+    fun resetRow() {
+        row = Row()
+        scoreDisposable = score.subscribe {
+            textScore.text = it.toString()
+        }
+    }
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? = inflater.inflate(R.layout.fragment_row, container, false).apply {
-        textScore.setTextColor(resources.getColor(
-            if (playerType == FIRST_PLAYER){
-                R.color.firstPlayerScoreColor
-            } else {
-                R.color.secondPlayerScoreColor
-            }
-        ))
+        textScore.setTextColor(
+            resources.getColor(
+                if (playerType == FIRST_PLAYER) {
+                    R.color.firstPlayerScoreColor
+                } else {
+                    R.color.secondPlayerScoreColor
+                }
+            )
+        )
+
+        scoreDisposable = score.subscribe {
+            textScore.text = it.toString()
+        }
+
         buttonBuffs.setOnClickListener {
             buffDialog = AlertDialog.Builder(context)
                 .setView(layoutInflater.inflate(R.layout.dialog_buffs, null).apply {
@@ -55,7 +78,7 @@ class RowFragment private constructor(val deckRowInterface: DeckRowInterface, va
                         row.enableMushroom()
                     }
 
-                    buttonHorn.setOnClickListener{
+                    buttonHorn.setOnClickListener {
                         row.hornActive = (it as ToggleButton).isChecked
                     }
 
@@ -66,12 +89,17 @@ class RowFragment private constructor(val deckRowInterface: DeckRowInterface, va
                 .create()
             buffDialog.show()
         }
-        score.subscribe {
-            textScore.text = it.toString()
-        }
+
         buttonEditDeck.setOnClickListener {
             deckRowInterface.showRowMenu(row, rowType)
         }
+
+
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
+        scoreDisposable.dispose()
     }
 
     companion object {
@@ -82,7 +110,11 @@ class RowFragment private constructor(val deckRowInterface: DeckRowInterface, va
         val TYPE_ARCHERY = 1
         val TYPE_SIEGE = 2
 
-        fun newInstance(deckRowInterface: DeckRowInterface, rowType: Int, playerType: Int): RowFragment {
+        fun newInstance(
+            deckRowInterface: DeckRowInterface,
+            rowType: Int,
+            playerType: Int
+        ): RowFragment {
             return RowFragment(deckRowInterface, rowType, playerType)
         }
     }

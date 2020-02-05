@@ -1,12 +1,14 @@
 package ru.shcherbakov.realgwenthelper.ui
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import kotlinx.android.synthetic.main.fragment_deck.*
 import kotlinx.android.synthetic.main.fragment_deck.backgroundImages
+import kotlinx.android.synthetic.main.fragment_deck.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Player
 import ru.shcherbakov.realgwenthelper.data.Row
@@ -45,6 +47,27 @@ class DeckFragment private constructor(val player: Player) : Fragment(), DeckRow
         set(value) {
             rowSiege.badWeather = value
         }
+
+    fun resetDeck() {
+        rowInfantry.resetRow()
+        rowArchery.resetRow()
+        rowSiege.resetRow()
+
+        rowInfantry.score.subscribe {
+            infantryScore = it
+            player.liveScore.onNext(infantryScore + archeryScore + siegeScore)
+        }
+        rowArchery.score.subscribe {
+            archeryScore = it
+            player.liveScore.onNext(infantryScore + archeryScore + siegeScore)
+        }
+        rowSiege.score.subscribe {
+            siegeScore = it
+            player.liveScore.onNext(infantryScore + archeryScore + siegeScore)
+        }
+
+        imageDeckBlocker.visibility = View.GONE
+    }
 
     override fun showRowMenu(row: Row, type: Int) {
         childFragmentManager.beginTransaction()
@@ -87,15 +110,21 @@ class DeckFragment private constructor(val player: Player) : Fragment(), DeckRow
         }
         rowInfantry.score.subscribe {
             infantryScore = it
-            player.score.onNext(infantryScore + archeryScore + siegeScore)
+            player.liveScore.onNext(infantryScore + archeryScore + siegeScore)
         }
         rowArchery.score.subscribe {
             archeryScore = it
-            player.score.onNext(infantryScore + archeryScore + siegeScore)
+            player.liveScore.onNext(infantryScore + archeryScore + siegeScore)
         }
         rowSiege.score.subscribe {
             siegeScore = it
-            player.score.onNext(infantryScore + archeryScore + siegeScore)
+            player.liveScore.onNext(infantryScore + archeryScore + siegeScore)
+        }
+
+        buttonPass.setOnLongClickListener {
+            imageDeckBlocker.visibility = View.VISIBLE
+            player.passed.onNext(true)
+            true
         }
     }
 

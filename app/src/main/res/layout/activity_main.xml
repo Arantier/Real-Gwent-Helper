@@ -8,6 +8,64 @@
     tools:context=".ui.MainActivity">
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/resultView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:elevation="100dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <ImageButton
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:background="@drawable/bkg_deck_blocked" />
+
+        <TextView
+            android:id="@+id/textLose"
+            style="@style/resultTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:rotation="180"
+            android:text="@string/title_lose"
+            app:layout_constraintBottom_toTopOf="@+id/textTie"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/textWon"
+            style="@style/resultTextStyle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/title_won"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textTie" />
+
+        <TextView
+            android:id="@+id/textTie"
+            style="@style/resultTextStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_tie"
+            android:visibility="gone"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:visibility="visible" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
     <FrameLayout
         android:id="@+id/secondPlayerDeck"
         android:layout_width="0dp"
@@ -17,7 +75,9 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         android:rotation="180"
-        tools:rotation="0" />
+        tools:rotation="0" >
+
+    </FrameLayout>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/middlePanel"

@@ -40,4 +40,6 @@
     <dimen name="weatherMenuPaddingVertical">8dp</dimen>
 
     <dimen name="bondDialogTitleSize">18sp</dimen>
+
+    <dimen name="resultTextSize">32sp</dimen>
 </resources>

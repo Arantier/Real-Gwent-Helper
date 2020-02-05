@@ -62,4 +62,10 @@
         <item name="android:layout_marginRight">@dimen/deckMenuPickerMarginHorizontal</item>
     </style>
 
+    <style name="resultTextStyle" parent="AppTheme">
+        <item name="android:textSize">@dimen/resultTextSize</item>
+        <item name="android:textColor">@color/resultTextColor</item>
+        <item name="android:textAlignment">center</item>
+    </style>
+
 </resources>
