@@ -36,16 +36,31 @@ class DeckFragment private constructor(val player: Player) : Fragment(), DeckRow
         get() = rowInfantry.badWeather
         set(value) {
             rowInfantry.badWeather = value
+            if (value){
+                imageFrost.visibility = View.VISIBLE
+            } else {
+                imageFrost.visibility = View.GONE
+            }
         }
     var fog
         get() = rowArchery.badWeather
         set(value) {
             rowArchery.badWeather = value
+            if (value){
+                imageFog.visibility = View.VISIBLE
+            } else {
+                imageFog.visibility = View.GONE
+            }
         }
     var rain
         get() = rowSiege.badWeather
         set(value) {
             rowSiege.badWeather = value
+            if (value){
+                imageRain.visibility = View.VISIBLE
+            } else {
+                imageRain.visibility = View.GONE
+            }
         }
 
     fun resetDeck() {

@@ -92,6 +92,46 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <ImageView
+            android:id="@+id/imageFrost"
+            app:srcCompat="@drawable/frost"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:alpha="0.15"
+            tools:visibility="visible"
+            app:layout_constraintTop_toTopOf="@id/imageInfantry"
+            app:layout_constraintBottom_toBottomOf="@id/imageInfantry"
+            app:layout_constraintStart_toStartOf="@id/imageInfantry"
+            app:layout_constraintEnd_toEndOf="@id/imageInfantry"/>
+
+        <ImageView
+            android:id="@+id/imageFog"
+            app:srcCompat="@drawable/fog"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:alpha="0.15"
+            app:layout_constraintTop_toTopOf="@id/imageArchery"
+            app:layout_constraintBottom_toBottomOf="@id/imageArchery"
+            app:layout_constraintStart_toStartOf="@id/imageArchery"
+            app:layout_constraintEnd_toEndOf="@id/imageArchery"/>
+
+        <ImageView
+            android:id="@+id/imageRain"
+            app:srcCompat="@drawable/rain"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            android:visibility="gone"
+            android:alpha="0.15"
+            app:layout_constraintTop_toTopOf="@id/imageSiege"
+            app:layout_constraintBottom_toBottomOf="@id/imageSiege"
+            app:layout_constraintStart_toStartOf="@id/imageSiege"
+            app:layout_constraintEnd_toEndOf="@id/imageSiege" />
+
+        <ImageView
             android:id="@+id/imageInfantry"
             style="@style/rowImageStyle"
             android:layout_width="0dp"

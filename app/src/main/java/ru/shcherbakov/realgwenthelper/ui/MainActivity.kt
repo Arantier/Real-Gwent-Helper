@@ -67,9 +67,9 @@ class MainActivity : AppCompatActivity() {
                 secondPlayerDeck.resetDeck()
             } else {
                 resultView.visibility = View.VISIBLE
-                if (firstPlayer.lives==0 && secondPlayer.lives!=0){
+                if (firstPlayer.lives == 0 && secondPlayer.lives != 0) {
                     resultView.rotation = 180.0f
-                } else if (firstPlayer.lives == secondPlayer.lives){
+                } else if (firstPlayer.lives == secondPlayer.lives) {
                     textWon.visibility = View.GONE
                     textLose.visibility = View.GONE
                     textTie.visibility = View.VISIBLE
@@ -147,43 +147,30 @@ class MainActivity : AppCompatActivity() {
             val view = layoutInflater.inflate(R.layout.dialog_weather, null)
             view.apply {
                 buttonClear.setOnClickListener {
-                    firstPlayerDeck.apply {
-                        frost = false
-                        fog = false
-                        rain = false
-
-                        buttonFrost.isChecked = false
-                        buttonFog.isChecked = false
-                        buttonRain.isChecked = false
-                        buttonStorm.isChecked = false
-                    }
-                    secondPlayerDeck.apply {
-                        frost = false
-                        fog = false
-                        rain = false
-                    }
+                    buttonFrost.isChecked = false
+                    buttonFog.isChecked = false
+                    buttonRain.isChecked = false
+                    buttonStorm.isChecked = false
                 }
 
-                buttonFrost.setOnClickListener {
-                    firstPlayerDeck.frost = (it as ToggleButton).isChecked
-                    secondPlayerDeck.frost = it.isChecked
+                buttonFrost.setOnCheckedChangeListener { buttonView, isChecked ->
+                    firstPlayerDeck.frost = isChecked
+                    secondPlayerDeck.frost = isChecked
                 }
 
-                buttonFog.setOnClickListener {
-                    firstPlayerDeck.fog = (it as ToggleButton).isChecked
-                    secondPlayerDeck.fog = it.isChecked
+                buttonFog.setOnCheckedChangeListener { buttonView, isChecked ->
+                    firstPlayerDeck.fog = isChecked
+                    secondPlayerDeck.fog = isChecked
                 }
 
-                buttonRain.setOnClickListener {
-                    firstPlayerDeck.rain = (it as ToggleButton).isChecked
-                    secondPlayerDeck.rain = it.isChecked
+                buttonRain.setOnCheckedChangeListener { buttonView, isChecked ->
+                    firstPlayerDeck.rain = isChecked
+                    secondPlayerDeck.rain = isChecked
                 }
 
-                buttonStorm.setOnClickListener {
-                    firstPlayerDeck.fog = (it as ToggleButton).isChecked
-                    firstPlayerDeck.rain = it.isChecked
-                    secondPlayerDeck.fog = it.isChecked
-                    secondPlayerDeck.rain = it.isChecked
+                buttonStorm.setOnCheckedChangeListener { buttonView, isChecked ->
+                    buttonFog.isChecked = isChecked
+                    buttonRain.isChecked = isChecked
                 }
 
                 buttonClose.setOnClickListener {
