@@ -98,10 +98,9 @@ class RowTest {
     @Test
     fun row_TestingBonds_ReturnsForty() {
         val row = Row()
-        val mainCard = Card(4, Card.TYPE_UNIT, Card.BONUS_BOND)
-        row.addCard(mainCard)
-        row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), mainCard)
-        row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), mainCard)
+        row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND))
+        row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
+        row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
         row.addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_NONE))
         assertThat(row.cardList.sumBy { it.finalCost }, `is`(40))
     }
@@ -150,10 +149,9 @@ class RowTest {
     fun row_RealRow_ReturnsHundred() {
         val row = Row()
         row.apply {
-            val blueStripe = Card(4, Card.TYPE_UNIT, Card.BONUS_BOND)
-            addCard(blueStripe)
-            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), blueStripe)
-            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), blueStripe)
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND))
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
             addCard(Card(8, Card.TYPE_HERO, Card.BONUS_BUFF))
             addCard(Card(7, Card.TYPE_UNIT, Card.BONUS_NONE))
             addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
@@ -168,10 +166,9 @@ class RowTest {
     fun row_RealRowScorched_ReturnsSixtyOne() {
         val row = Row()
         row.apply {
-            val blueStripe = Card(4, Card.TYPE_UNIT, Card.BONUS_BOND)
-            addCard(blueStripe)
-            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), blueStripe)
-            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), blueStripe)
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND))
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
             addCard(Card(7, Card.TYPE_UNIT, Card.BONUS_NONE))
             addCard(Card(8, Card.TYPE_HERO, Card.BONUS_BUFF))
             addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))
@@ -189,10 +186,9 @@ class RowTest {
         row.bran = true
         row.badWeather = true
         row.apply {
-            val blueStripe = Card(4, Card.TYPE_UNIT, Card.BONUS_BOND)
-            addCard(blueStripe)
-            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), blueStripe)
-            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), blueStripe)
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND))
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
+            addCard(Card(4, Card.TYPE_UNIT, Card.BONUS_BOND), row.bondList[0])
             addCard(Card(7, Card.TYPE_UNIT, Card.BONUS_NONE))
             addCard(Card(8, Card.TYPE_HERO, Card.BONUS_BUFF))
             addCard(Card(10, Card.TYPE_HERO, Card.BONUS_NONE))

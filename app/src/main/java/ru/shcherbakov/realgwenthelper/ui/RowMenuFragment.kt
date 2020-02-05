@@ -10,6 +10,8 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.core.view.children
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import com.shawnlin.numberpicker.NumberPicker
 import kotlinx.android.synthetic.main.dialog_bond.view.*
 import kotlinx.android.synthetic.main.fragment_row_menu.*
 import kotlinx.android.synthetic.main.fragment_row_menu.buttonClose
@@ -27,6 +29,8 @@ class RowMenuFragment private constructor(
     OpenEditorListener, View.OnClickListener {
 
     var currentButtonState = BUTTON_UNIT_DEFAULT
+
+    var bondDialog: BondDialogFragment? = null
 
     fun openMenu() {
         recyclerCardsList.visibility = View.GONE
@@ -100,7 +104,22 @@ class RowMenuFragment private constructor(
     }
 
     override fun editCard(card: Card) {
+        var newBond: ArrayList<Card>? = null
+        bondDialog = BondDialogFragment(card, row.bondList, object : ForgeBondInterface {
+            override fun forgeBond(card: Card, bond: ArrayList<Card>?) {
+                newBond = bond
+                if (bond != null) {
+                    numberPicker.value = bond[0].cost
+                }
+            }
+        })
         numberPicker.value = card.cost
+        numberPicker.setOnScrollListener { numberPicker, scrollState ->
+            if (newBond != null) {
+                newBond = null
+                setButtonState(BUTTON_UNIT_DEFAULT)
+            }
+        }
         val buttonValue = if (card.type == Card.TYPE_HERO) {
             when (card.bonus) {
                 Card.BONUS_BUFF -> BUTTON_HERO_BUFF
@@ -136,7 +155,7 @@ class RowMenuFragment private constructor(
                 else -> Card.BONUS_NONE
             }
             if (card.cost != cost || card.type != type || card.bonus != bonus) {
-                row.editCard(card, Card(cost, type, bonus))
+                row.editCard(card, Card(cost, type, bonus), newBond)
             }
             closeMenu()
         }
@@ -147,7 +166,10 @@ class RowMenuFragment private constructor(
         when (v?.id ?: 0) {
             buttonUnitBuff.id -> setButtonState(BUTTON_UNIT_BUFF)
             buttonUnitHorn.id -> setButtonState(BUTTON_UNIT_HORN)
-            buttonUnitBond.id -> setButtonState(BUTTON_UNIT_BOND)
+            buttonUnitBond.id -> {
+                setButtonState(BUTTON_UNIT_BOND)
+                bondDialog?.show(requireFragmentManager(), "")
+            }
             buttonHeroDefault.id -> setButtonState(BUTTON_HERO_DEFAULT)
             buttonHeroBuff.id -> setButtonState(BUTTON_HERO_BUFF)
             buttonHeroMushroom.id -> setButtonState(BUTTON_HERO_MUSHROOM)

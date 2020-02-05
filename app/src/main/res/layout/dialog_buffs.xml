@@ -25,10 +25,24 @@
         android:background="@drawable/ic_button_scorch"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toTopOf="@+id/buttonClose"
-        app:layout_constraintEnd_toStartOf="@+id/buttonHorn"
+        app:layout_constraintEnd_toStartOf="@+id/buttonMushroom"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageButton
+        android:id="@+id/buttonMushroom"
+        android:layout_width="@dimen/weatherButtonSize"
+        android:layout_height="@dimen/weatherButtonSize"
+        android:layout_marginTop="@dimen/effectMenuPaddingVertical"
+        android:layout_marginBottom="@dimen/effectMenuPaddingVertical"
+        android:background="@drawable/ic_button_mushroom"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@id/buttonScorch"
+        app:layout_constraintEnd_toStartOf="@+id/buttonHorn"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/buttonScorch"
+        app:layout_constraintTop_toTopOf="@id/buttonScorch" />
 
     <ToggleButton
         android:id="@+id/buttonHorn"
@@ -37,21 +51,9 @@
         android:layout_height="@dimen/weatherButtonSize"
         android:background="@drawable/ic_button_horn"
         app:layout_constraintBottom_toBottomOf="@id/buttonScorch"
-        app:layout_constraintEnd_toStartOf="@+id/buttonMushroom"
+        app:layout_constraintEnd_toStartOf="@+id/buttonBran"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonScorch"
-        app:layout_constraintTop_toTopOf="@id/buttonScorch" />
-
-    <ToggleButton
-        android:id="@+id/buttonMushroom"
-        style="@style/toggleButtonDefaultStyle"
-        android:layout_width="@dimen/weatherButtonSize"
-        android:layout_height="@dimen/weatherButtonSize"
-        android:background="@drawable/ic_button_mushroom"
-        app:layout_constraintBottom_toBottomOf="@id/buttonScorch"
-        app:layout_constraintEnd_toStartOf="@id/buttonBran"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonHorn"
+        app:layout_constraintStart_toEndOf="@+id/buttonMushroom"
         app:layout_constraintTop_toTopOf="@id/buttonScorch" />
 
     <ToggleButton
@@ -63,7 +65,7 @@
         app:layout_constraintBottom_toBottomOf="@id/buttonScorch"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/buttonMushroom"
+        app:layout_constraintStart_toEndOf="@+id/buttonHorn"
         app:layout_constraintTop_toTopOf="@id/buttonScorch" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

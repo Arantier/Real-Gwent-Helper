@@ -1,20 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true">
+        <layer-list>
+            <item android:drawable="@drawable/bkg_effect_button_active"
+                android:top="@dimen/effectButtonBackgroundPaddingVertical"
+                android:bottom="@dimen/effectButtonBackgroundPaddingVertical"
+                android:left="@dimen/effectButtonBackgroundPaddingHorizontal"
+                android:right="@dimen/effectButtonBackgroundPaddingHorizontal"/>
 
-    <item
-        android:id="@+id/backgroundImages"
-        android:drawable="@drawable/bkg_toggle_button"
-        android:top="@dimen/effectButtonBackgroundPaddingVertical"
-        android:bottom="@dimen/effectButtonBackgroundPaddingVertical"
-        android:left="@dimen/effectButtonBackgroundPaddingHorizontal"
-        android:right="@dimen/effectButtonBackgroundPaddingHorizontal"
-        />
+            <item android:drawable="@drawable/ic_mushroom"/>
+        </layer-list>
+    </item>
+    <item>
+        <layer-list>
+            <item android:drawable="@drawable/bkg_effect_button_inactive"
+                android:top="@dimen/effectButtonBackgroundPaddingVertical"
+                android:bottom="@dimen/effectButtonBackgroundPaddingVertical"
+                android:left="@dimen/effectButtonBackgroundPaddingHorizontal"
+                android:right="@dimen/effectButtonBackgroundPaddingHorizontal"/>
 
-    <item
-        android:id="@+id/imageMushroom"
-        android:drawable="@drawable/ic_mushroom"
-        android:top="@dimen/buttonIconPaddingVertical"
-        android:bottom="@dimen/buttonIconPaddingVertical"
-        android:left="@dimen/buttonIconPaddingHorizontal"
-        android:right="@dimen/buttonIconPaddingHorizontal"/>
-</layer-list>
+            <item android:drawable="@drawable/ic_mushroom"/>
+        </layer-list>
+    </item>
+</selector>

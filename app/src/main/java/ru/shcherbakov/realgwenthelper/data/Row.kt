@@ -7,7 +7,7 @@ class Row {
     private val _heroesCardList = ArrayList<Card>()
     private val _unitsCardList = ArrayList<Card>()
     private val bondedBerserkers = ArrayList<Card>()
-    private val bondedCardsList = ArrayList<ArrayList<Card>>().apply { add(bondedBerserkers) }
+    private val bondedCardsList = ArrayList<ArrayList<Card>>().apply { }
     private var isBadWeather = false
     private var isHorny = false
     private var isFuckingBran = false
@@ -74,7 +74,10 @@ class Row {
             return (_heroesCardList.clone() as ArrayList<Card>).apply { addAll(_unitsCardList) }
         }
 
-    fun addCard(card: Card, bondedCard: Card? = null) {
+    val bondList: ArrayList<ArrayList<Card>>
+        get() = bondedCardsList
+
+    fun addCard(card: Card, bond: ArrayList<Card>? = null) {
         if (card.type == Card.TYPE_UNIT) {
             _unitsCardList.add(card)
         } else {
@@ -82,13 +85,12 @@ class Row {
         }
         when (card.bonus) {
             Card.BONUS_BOND -> {
-                if (bondedCard == null) {
+                if (bond == null) {
                     val list = ArrayList<Card>()
                     list.add(card)
                     bondedCardsList.add(list)
                 } else {
-                    val bondedList = bondedCardsList.find { it.contains(bondedCard) }
-                    bondedList!!.add(card)
+                    bond.add(card)
                 }
             }
             Card.BONUS_MUSHROOM -> enableMushroom()
@@ -113,9 +115,9 @@ class Row {
         updateScore()
     }
 
-    fun editCard(oldCard: Card, editedCard: Card) {
+    fun editCard(oldCard: Card, editedCard: Card, newBond: ArrayList<Card>? = null) {
         removeCard(oldCard)
-        addCard(editedCard)
+        addCard(editedCard, newBond)
     }
 
     fun scorch() {
@@ -134,8 +136,9 @@ class Row {
         // т.е. должен быть бафф на ряд. Если стоимость равна 2 - это вильдкаарл,значит должна быть связь
         // Если стоимость не пойми чему равна - значит это проблемы игрока
         _mushroom = true
-        _unitsCardList.filter { it.bonus == Card.BONUS_BERSERK }
-            .forEach { berserkingCard ->
+        val possibleBerserkers = _unitsCardList.filter { it.bonus == Card.BONUS_BERSERK }
+        if (possibleBerserkers.isNotEmpty()) {
+            possibleBerserkers.forEach { berserkingCard ->
                 if (berserkingCard.cost == 4) {
                     val berserkedCard =
                         Card(
@@ -153,6 +156,9 @@ class Row {
                         )
                     removeCard(berserkingCard)
                     _unitsCardList.add(berserkedCard)
+                    if (bondedBerserkers.isEmpty()) {
+                        bondedCardsList.add(bondedBerserkers)
+                    }
                     bondedBerserkers.add(berserkedCard)
                 } else {
                     val berserkedCard =
@@ -165,10 +171,11 @@ class Row {
                 }
 
             }
-        updateScore()
+            updateScore()
+        }
     }
 
     fun updateScore() {
-        liveScore.onNext(cardList.sumBy { it.cost })
+        liveScore.onNext(cardList.sumBy { it.finalCost })
     }
 }

@@ -8,4 +8,5 @@
     <string name="title_bond">Выберите связанную карту</string>
     <string name="title_leader_menu">Эффекты лидера</string>
     <string name="title_bran_ability">Способность Короля Брана</string>
+    <string name="title_new_bond">Новая связь</string>
 </resources>
