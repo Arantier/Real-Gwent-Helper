@@ -20,6 +20,11 @@ class RowFragment private constructor(val deckRowInterface: DeckRowInterface, va
     private lateinit var buffDialog: AlertDialog
 
     val score = row.liveScore
+    var badWeather
+        get() = row.badWeather
+        set(value) {
+            row.badWeather = value
+        }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

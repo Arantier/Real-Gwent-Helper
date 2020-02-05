@@ -1,13 +1,10 @@
 package ru.shcherbakov.realgwenthelper.ui
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import io.reactivex.rxkotlin.zipWith
-import io.reactivex.subjects.BehaviorSubject
 import kotlinx.android.synthetic.main.fragment_deck.*
 import kotlinx.android.synthetic.main.fragment_deck.backgroundImages
 import ru.shcherbakov.realgwenthelper.R
@@ -32,6 +29,22 @@ class DeckFragment private constructor(val player: Player) : Fragment(), DeckRow
     var infantryScore = 0
     var archeryScore = 0
     var siegeScore = 0
+
+    var frost
+        get() = rowInfantry.badWeather
+        set(value) {
+            rowInfantry.badWeather = value
+        }
+    var fog
+        get() = rowArchery.badWeather
+        set(value) {
+            rowArchery.badWeather = value
+        }
+    var rain
+        get() = rowSiege.badWeather
+        set(value) {
+            rowSiege.badWeather = value
+        }
 
     override fun showRowMenu(row: Row, type: Int) {
         childFragmentManager.beginTransaction()

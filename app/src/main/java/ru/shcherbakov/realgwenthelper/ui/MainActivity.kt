@@ -3,6 +3,7 @@ package ru.shcherbakov.realgwenthelper.ui
 import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
@@ -46,9 +47,50 @@ class MainActivity : AppCompatActivity() {
 
         weatherDialog = AlertDialog.Builder(this).apply {
             val view = layoutInflater.inflate(R.layout.dialog_weather, null)
-            //TODO: установи листенеры
-            view.buttonClose.setOnClickListener {
-                weatherDialog.hide()
+            view.apply {
+                buttonClear.setOnClickListener {
+                    firstPlayerDeck.apply {
+                        frost = false
+                        fog = false
+                        rain = false
+
+                        buttonFrost.isChecked = false
+                        buttonFog.isChecked = false
+                        buttonRain.isChecked = false
+                        buttonStorm.isChecked = false
+                    }
+                    secondPlayerDeck.apply {
+                        frost = false
+                        fog = false
+                        rain = false
+                    }
+                }
+
+                buttonFrost.setOnClickListener {
+                    firstPlayerDeck.frost = (it as ToggleButton).isChecked
+                    secondPlayerDeck.frost = it.isChecked
+                }
+
+                buttonFog.setOnClickListener {
+                    firstPlayerDeck.fog = (it as ToggleButton).isChecked
+                    secondPlayerDeck.fog = it.isChecked
+                }
+
+                buttonRain.setOnClickListener {
+                    firstPlayerDeck.rain = (it as ToggleButton).isChecked
+                    secondPlayerDeck.rain = it.isChecked
+                }
+
+                buttonStorm.setOnClickListener {
+                    firstPlayerDeck.fog = (it as ToggleButton).isChecked
+                    firstPlayerDeck.rain = it.isChecked
+                    secondPlayerDeck.fog = it.isChecked
+                    secondPlayerDeck.rain = it.isChecked
+                }
+
+                buttonClose.setOnClickListener {
+                    weatherDialog.hide()
+                }
             }
             setView(view)
         }.create()
