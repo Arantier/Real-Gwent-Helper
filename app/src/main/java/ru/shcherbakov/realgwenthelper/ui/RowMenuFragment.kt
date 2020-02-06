@@ -1,7 +1,6 @@
 package ru.shcherbakov.realgwenthelper.ui
 
 
-import android.app.AlertDialog
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -10,9 +9,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import androidx.core.view.children
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
-import com.shawnlin.numberpicker.NumberPicker
-import kotlinx.android.synthetic.main.dialog_bond.view.*
 import kotlinx.android.synthetic.main.fragment_row_menu.*
 import kotlinx.android.synthetic.main.fragment_row_menu.buttonClose
 import kotlinx.android.synthetic.main.fragment_row_menu.view.*
@@ -23,7 +19,7 @@ import ru.shcherbakov.realgwenthelper.data.Row
 
 class RowMenuFragment private constructor(
     val row: Row,
-    val deckRowInterface: DeckRowInterface,
+    val openRowMenuInterface: OpenRowMenuInterface,
     val rowType: Int
 ) : Fragment(),
     OpenEditorListener, View.OnClickListener {
@@ -46,7 +42,7 @@ class RowMenuFragment private constructor(
         buttonRemove.visibility = View.GONE
         buttonApply.visibility = View.GONE
         recyclerCardsList.adapter = CardListAdapter(row.cardList, this@RowMenuFragment)
-        buttonClose.setOnClickListener { deckRowInterface.closeRowMenu() }
+        buttonClose.setOnClickListener { openRowMenuInterface.closeRowMenu() }
     }
 
     fun setButtonActive(button: ImageButton) {
@@ -188,7 +184,7 @@ class RowMenuFragment private constructor(
             RowFragment.TYPE_SIEGE -> imageRowIcon.setImageDrawable(context.getDrawable(R.drawable.ic_siege))
         }
         buttonClose.setOnClickListener {
-            deckRowInterface.closeRowMenu()
+            openRowMenuInterface.closeRowMenu()
         }
 
         recyclerCardsList.adapter = CardListAdapter(row.cardList, this@RowMenuFragment)
@@ -214,10 +210,10 @@ class RowMenuFragment private constructor(
 
         fun newInstance(
             row: Row,
-            deckRowInterface: DeckRowInterface,
+            openRowMenuInterface: OpenRowMenuInterface,
             rowType: Int
         ): RowMenuFragment {
-            return RowMenuFragment(row, deckRowInterface, rowType)
+            return RowMenuFragment(row, openRowMenuInterface, rowType)
         }
     }
 }

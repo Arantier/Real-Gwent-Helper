@@ -10,14 +10,13 @@ import android.view.ViewGroup
 import android.widget.ToggleButton
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.dialog_buffs.view.*
-import kotlinx.android.synthetic.main.fragment_deck.*
 import kotlinx.android.synthetic.main.fragment_row.*
 import kotlinx.android.synthetic.main.fragment_row.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Row
 
 class RowFragment private constructor(
-    val deckRowInterface: DeckRowInterface,
+    val openRowMenuInterface: OpenRowMenuInterface,
     val rowType: Int,
     val playerType: Int
 ) :
@@ -72,10 +71,12 @@ class RowFragment private constructor(
 
                     buttonScorch.setOnClickListener {
                         row.scorch()
+                        buffDialog.hide()
                     }
 
                     buttonMushroom.setOnClickListener {
                         row.enableMushroom()
+                        buffDialog.hide()
                     }
 
                     buttonHorn.setOnClickListener {
@@ -91,7 +92,7 @@ class RowFragment private constructor(
         }
 
         buttonEditDeck.setOnClickListener {
-            deckRowInterface.showRowMenu(row, rowType)
+            openRowMenuInterface.showRowMenu(row, rowType)
         }
 
 
@@ -111,11 +112,11 @@ class RowFragment private constructor(
         val TYPE_SIEGE = 2
 
         fun newInstance(
-            deckRowInterface: DeckRowInterface,
+            openRowMenuInterface: OpenRowMenuInterface,
             rowType: Int,
             playerType: Int
         ): RowFragment {
-            return RowFragment(deckRowInterface, rowType, playerType)
+            return RowFragment(openRowMenuInterface, rowType, playerType)
         }
     }
 }

@@ -4,18 +4,16 @@ import android.app.Dialog
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import android.widget.ToggleButton
 import androidx.appcompat.app.AlertDialog
 import androidx.core.view.children
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.dialog_buffs.*
 import kotlinx.android.synthetic.main.dialog_weather.*
 import kotlinx.android.synthetic.main.dialog_weather.view.*
 import ru.shcherbakov.realgwenthelper.R
 import ru.shcherbakov.realgwenthelper.data.Player
 
-public class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity() {
 
     private lateinit var weatherDialog: Dialog
     private val firstPlayer = Player("First")
@@ -68,11 +66,11 @@ public class MainActivity : AppCompatActivity() {
                 arrayOf(firstPlayerDeck, secondPlayerDeck).forEach { player ->
                     player.resetDeck()
                 }
-
-                weatherDialog.buttonFrost.isChecked = false
-                weatherDialog.buttonFog.isChecked = false
-                weatherDialog.buttonRain.isChecked = false
-                weatherDialog.buttonStorm.isChecked = false
+                weatherDialog.apply {
+                    arrayOf(buttonFrost, buttonFog, buttonRain, buttonStorm).forEach {
+                        it?.isChecked = false
+                    }
+                }
             } else {
                 resultView.visibility = View.VISIBLE
                 if (firstPlayer.lives == 0 && secondPlayer.lives != 0) {
@@ -97,6 +95,14 @@ public class MainActivity : AppCompatActivity() {
             imageFirstPlayerGem2.setImageDrawable(resources.getDrawable(R.drawable.ic_gem_filled))
             imageSecondPlayerGem1.setImageDrawable(resources.getDrawable(R.drawable.ic_gem_filled))
             imageSecondPlayerGem2.setImageDrawable(resources.getDrawable(R.drawable.ic_gem_filled))
+
+            weatherDialog.apply {
+                buttonFrost?.isChecked = false
+                buttonFog?.isChecked = false
+                buttonRain?.isChecked = false
+                buttonStorm?.isChecked = false
+            }
+
 
             val newFirstPlayerDeck = DeckFragment.newInstance(firstPlayer)
             val newSecondPlayerDeck = DeckFragment.newInstance(secondPlayer)
@@ -182,7 +188,7 @@ public class MainActivity : AppCompatActivity() {
                 }
 
                 buttonClose.setOnClickListener {
-                    weatherDialog.hide()
+                    weatherDialog.dismiss()
                 }
             }
             setView(view)

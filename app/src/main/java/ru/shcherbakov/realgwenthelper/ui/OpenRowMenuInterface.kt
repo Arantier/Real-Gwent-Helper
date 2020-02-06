@@ -2,8 +2,7 @@ package ru.shcherbakov.realgwenthelper.ui
 
 import ru.shcherbakov.realgwenthelper.data.Row
 
-//TODO: Название поменяй
-interface DeckRowInterface {
+interface OpenRowMenuInterface {
 
     fun showRowMenu(row: Row, type: Int)
 
